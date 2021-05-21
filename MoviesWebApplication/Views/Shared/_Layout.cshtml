@@ -11,31 +11,32 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                <img srcset="/Images/unnamed.png" width="150px" height="60px;" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a class="navbar-brand" asp-area="" asp-controller="Movies" asp-action="Index">Home</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
                     <ul class="navbar-nav flex-grow-1">
-                        
+
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Movies
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
 
-                                <a class="dropdown-item" asp-action="ActionMovies" asp-controller="Home" asp-area="" >Action</a>
+                                <a class="dropdown-item" asp-action="ActionMovies" asp-controller="Movies" asp-area="">Action</a>
 
-                                <a class="dropdown-item" asp-action="AdventureMovies" asp-controller="Home"  >Adventure</a>
+                                <a class="dropdown-item" asp-action="AdventureMovies" asp-controller="Movies">Adventure</a>
 
-                                <a class="dropdown-item" asp-action="HorrorMovies" asp-controller="Home" asp-area="">Horror</a>
+                                <a class="dropdown-item" asp-action="HorrorMovies" asp-controller="Movies" asp-area="">Horror</a>
 
-                                <a class="dropdown-item" asp-action="DramaMovies" asp-controller="Home" asp-area="">Drama</a>
+                                <a class="dropdown-item" asp-action="DramaMovies" asp-controller="Movies" asp-area="">Drama</a>
 
-                                <a class="dropdown-item" asp-action="RomanceMovies" asp-controller="Home" asp-area="">Romance</a>
+                                <a class="dropdown-item" asp-action="RomanceMovies" asp-controller="Movies" asp-area="">Romance</a>
 
-                                <a class="dropdown-item" asp-action="ComedyMovies" asp-controller="Home" asp-area="">Comedy</a>
+                                <a class="dropdown-item" asp-action="ComedyMovies" asp-controller="Movies" asp-area="">Comedy</a>
                             </div>
                         </li>
                     </ul>
@@ -51,7 +52,7 @@
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2021 - MoviesWebApplication - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            &copy; 2021 - MoviesWebApplication - <a asp-area="" asp-controller="Movies" asp-action="Privacy">Privacy</a>
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>

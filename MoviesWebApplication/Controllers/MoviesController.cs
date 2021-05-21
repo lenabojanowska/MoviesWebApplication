@@ -9,11 +9,11 @@ using System.Threading.Tasks;
 
 namespace MoviesWebApplication.Controllers
 {
-    public class HomeController : Controller
+    public class MoviesController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private readonly ILogger<MoviesController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
+        public MoviesController(ILogger<MoviesController> logger)
         {
             _logger = logger;
         }
