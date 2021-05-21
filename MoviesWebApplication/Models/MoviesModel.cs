@@ -14,6 +14,21 @@ namespace MoviesWebApplication.Models
         [Required]
         public string Name { get; set; }
 
+        [Required]
+        public string About { get; set; }
+
+        [Required]
+        public string Director { get; set; }
+
+        [Required]
+        public string Producer { get; set; }
+
+        [Required]
+        public string Actors { get; set; }
+
+        public string Ratings { get; set; }
+        public enum ERatings { Zero = 0, One = 1, Two = 2, Three = 3, Four = 4, Five = 5 }
+
         public string Category { get; set; }
         public enum ECategory { Action = 0, Adventure = 1, Horror = 2, Drama = 3, Romance = 4, Comedy = 5 }
     }
