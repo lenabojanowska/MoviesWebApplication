@@ -223,3 +223,8 @@ C:\Users\karla\source\repos\lenabojanowska\MoviesWebApplication\MoviesWebApplica
 C:\Users\karla\source\repos\lenabojanowska\MoviesWebApplication\MoviesWebApplication\obj\Debug\netcoreapp3.1\Razor\Views\Movies\Delete.cshtml.g.cs
 C:\Users\karla\source\repos\lenabojanowska\MoviesWebApplication\MoviesWebApplication\obj\Debug\netcoreapp3.1\Razor\Views\Movies\Details.cshtml.g.cs
 C:\Users\karla\source\repos\lenabojanowska\MoviesWebApplication\MoviesWebApplication\obj\Debug\netcoreapp3.1\Razor\Views\Movies\Edit.cshtml.g.cs
+C:\Users\karla\source\repos\lenabojanowska\MoviesWebApplication\MoviesWebApplication\obj\Debug\netcoreapp3.1\Razor\Views\People\Create.cshtml.g.cs
+C:\Users\karla\source\repos\lenabojanowska\MoviesWebApplication\MoviesWebApplication\obj\Debug\netcoreapp3.1\Razor\Views\People\Delete.cshtml.g.cs
+C:\Users\karla\source\repos\lenabojanowska\MoviesWebApplication\MoviesWebApplication\obj\Debug\netcoreapp3.1\Razor\Views\People\Details.cshtml.g.cs
+C:\Users\karla\source\repos\lenabojanowska\MoviesWebApplication\MoviesWebApplication\obj\Debug\netcoreapp3.1\Razor\Views\People\Edit.cshtml.g.cs
+C:\Users\karla\source\repos\lenabojanowska\MoviesWebApplication\MoviesWebApplication\obj\Debug\netcoreapp3.1\Razor\Views\People\Index.cshtml.g.cs
