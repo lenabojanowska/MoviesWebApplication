@@ -1,0 +1,20 @@
+attach new DB to an old one under name 'Movie'
+
+run following commands:
+
+INSERT INTO Movie.movies SELECT * FROM movies
+INSERT INTO Movie.people SELECT * FROM people
+
+INSERT INTO Movie.ratings(MovieId,Rating,Votes)
+select movie_id, rating, votes from ratings
+inner join movies on movies.id=ratings.movie_id 
+
+INSERT INTO Movie.directors(MovieId,PersonId)
+select movie_id, person_id from directors
+inner join movies on movies.id=directors.movie_id 
+inner join people on people.Id=directors.person_id
+
+INSERT INTO Movie.stars(MovieId,PersonId)
+select movie_id, person_id from directors
+inner join movies on movies.id=directors.movie_id 
+inner join people on people.Id=directors.person_id
