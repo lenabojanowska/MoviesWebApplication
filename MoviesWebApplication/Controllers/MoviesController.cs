@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
+using MoviesWebApplication.Data;
 using MoviesWebApplication.Models;
 using System;
 using System.Collections.Generic;
@@ -12,15 +14,30 @@ namespace MoviesWebApplication.Controllers
     public class MoviesController : Controller
     {
         private readonly ILogger<MoviesController> _logger;
+        private readonly MoviesContext _context;
 
-        public MoviesController(ILogger<MoviesController> logger)
+        public MoviesController(ILogger<MoviesController> logger, MoviesContext moviesContext)
         {
             _logger = logger;
+            _context = moviesContext;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> IndexAsync()
         {
-            return View();
+            var list = await _context.Movies.ToListAsync();
+            var r = new Random();
+            var l = new List<MovieDBO>();
+            if (list.Count() > 0)
+            {
+                int i = 0;
+                while (i <= 15)
+                {
+                    l.Add(list.ElementAt(r.Next(0, list.Count())));
+                    i++;
+                }
+            }
+            
+            return View(l);
         }
 
         public IActionResult Privacy()

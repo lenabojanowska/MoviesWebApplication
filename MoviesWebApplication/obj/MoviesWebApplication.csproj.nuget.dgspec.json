@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\karla\\Source\\Repos\\lenabojanowska\\MoviesWebApplication\\MoviesWebApplication\\MoviesWebApplication.csproj": {}
+    "C:\\Users\\karla\\source\\repos\\lenabojanowska\\MoviesWebApplication\\MoviesWebApplication\\MoviesWebApplication.csproj": {}
   },
   "projects": {
-    "C:\\Users\\karla\\Source\\Repos\\lenabojanowska\\MoviesWebApplication\\MoviesWebApplication\\MoviesWebApplication.csproj": {
+    "C:\\Users\\karla\\source\\repos\\lenabojanowska\\MoviesWebApplication\\MoviesWebApplication\\MoviesWebApplication.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\karla\\Source\\Repos\\lenabojanowska\\MoviesWebApplication\\MoviesWebApplication\\MoviesWebApplication.csproj",
+        "projectUniqueName": "C:\\Users\\karla\\source\\repos\\lenabojanowska\\MoviesWebApplication\\MoviesWebApplication\\MoviesWebApplication.csproj",
         "projectName": "MoviesWebApplication",
-        "projectPath": "C:\\Users\\karla\\Source\\Repos\\lenabojanowska\\MoviesWebApplication\\MoviesWebApplication\\MoviesWebApplication.csproj",
+        "projectPath": "C:\\Users\\karla\\source\\repos\\lenabojanowska\\MoviesWebApplication\\MoviesWebApplication\\MoviesWebApplication.csproj",
         "packagesPath": "C:\\Users\\karla\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\karla\\Source\\Repos\\lenabojanowska\\MoviesWebApplication\\MoviesWebApplication\\obj\\",
+        "outputPath": "C:\\Users\\karla\\source\\repos\\lenabojanowska\\MoviesWebApplication\\MoviesWebApplication\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"
@@ -48,17 +48,25 @@
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[5.0.6, )"
+              "version": "[3.1.15, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[3.1.15, )"
             },
             "Microsoft.EntityFrameworkCore.Sqlite": {
               "target": "Package",
-              "version": "[5.0.6, )"
+              "version": "[3.1.15, )"
             },
             "Microsoft.EntityFrameworkCore.Tools": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[5.0.6, )"
+              "version": "[3.1.15, )"
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[3.1.5, )"
             }
           },
           "imports": [

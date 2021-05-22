@@ -7,7 +7,6 @@ using System.Threading.Tasks;
 
 namespace MoviesWebApplication.Data.DBO
 {
-    [Keyless]
     public class DirectorDBO
     {
         [ForeignKey("Person")]

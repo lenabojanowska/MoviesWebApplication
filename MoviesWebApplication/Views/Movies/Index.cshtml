@@ -1,21 +1,41 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@model IEnumerable<MoviesWebApplication.Data.MovieDBO>
+
+@{
+    ViewData["Title"] = "Index";
 }
 
+<h1>Index</h1>
 
-<div class="text-center">
-
-    <form class="text-center" asp-action="Index" method="get">
-        <p>
-            Movie Name: <input class="searchbar" type="search" placeholder="Search your Movies..." value="@ViewData["GetMovies"]" name="MovieSearch" style="width:500px" />
-            <button class="btn btn-danger" type="search" value="search">Search</button>
-            <a asp-action="Index"><i class="fas fa-close"></i></a>
-        </p>
-    </form>
-    <h1>All Movies </h1><hr />
-                        <div>
-                            
-                            <button type="button" onclick="location.href='@Url.Action("MovieDetails","Movies")'"> Movie Details</button>
-                          
-                        </div>
-</div>
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Year)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Year)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

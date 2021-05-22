@@ -1,7 +1,9 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using MoviesWebApplication.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,7 +29,7 @@ namespace MoviesWebApplication
                 var services = scope.ServiceProvider;
                 try
                 {
-                    var context = services.GetRequiredService<MoviesDBContext>();
+                    var context = services.GetRequiredService<MoviesContext>();
                     context.Database.EnsureCreated();
                     // DbInitializer.Initialize(context);
                 }
