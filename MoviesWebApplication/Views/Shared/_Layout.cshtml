@@ -41,6 +41,21 @@
                         </li>
                     </ul>
                 </div>
+                <a class="navbar-brand" asp-area="" asp-controller="Movies" asp-action="TopLists">Top Lists</a>
+                <div>
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <li class="nav-item">
+                            Hello @User.Identity.Name
+                        </li>
+                    }
+                    else
+                    {
+                        <li class="nav-item">
+                            Not logged in.
+                        </li>
+                    }
+                </div>
             </div>
         </nav>
     </header>

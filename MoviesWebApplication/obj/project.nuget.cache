@@ -1,9 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "dqFpVWnmC0prZpb27xEQ8QHqNV4oA9FkQc/hBeptWMKOYyLLZhvflDfxL+9x2Fmg+w8+hrda0ftBB4uvVLYHoQ==",
+  "dgSpecHash": "lU1EED26d6o3cgZxXDGqdf+7FOz8Oc5Gqkd19A8/S3IeuZnz2MfXB7pZQA+nX9YpICKS6gN5Nx7rBJjLbQdKvA==",
   "success": true,
   "projectFilePath": "C:\\Users\\karla\\source\\repos\\lenabojanowska\\MoviesWebApplication\\MoviesWebApplication\\MoviesWebApplication.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\karla\\.nuget\\packages\\microsoft.aspnetcore.authentication.azuread.ui\\3.1.15\\microsoft.aspnetcore.authentication.azuread.ui.3.1.15.nupkg.sha512",
+    "C:\\Users\\karla\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\3.1.15\\microsoft.aspnetcore.authentication.jwtbearer.3.1.15.nupkg.sha512",
+    "C:\\Users\\karla\\.nuget\\packages\\microsoft.aspnetcore.authentication.openidconnect\\3.1.15\\microsoft.aspnetcore.authentication.openidconnect.3.1.15.nupkg.sha512",
     "C:\\Users\\karla\\.nuget\\packages\\microsoft.aspnetcore.html.abstractions\\2.2.0\\microsoft.aspnetcore.html.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\karla\\.nuget\\packages\\microsoft.aspnetcore.razor\\2.2.0\\microsoft.aspnetcore.razor.2.2.0.nupkg.sha512",
     "C:\\Users\\karla\\.nuget\\packages\\microsoft.aspnetcore.razor.language\\3.1.0\\microsoft.aspnetcore.razor.language.3.1.0.nupkg.sha512",

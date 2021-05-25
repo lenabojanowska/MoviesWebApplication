@@ -228,3 +228,8 @@ C:\Users\karla\source\repos\lenabojanowska\MoviesWebApplication\MoviesWebApplica
 C:\Users\karla\source\repos\lenabojanowska\MoviesWebApplication\MoviesWebApplication\obj\Debug\netcoreapp3.1\Razor\Views\People\Details.cshtml.g.cs
 C:\Users\karla\source\repos\lenabojanowska\MoviesWebApplication\MoviesWebApplication\obj\Debug\netcoreapp3.1\Razor\Views\People\Edit.cshtml.g.cs
 C:\Users\karla\source\repos\lenabojanowska\MoviesWebApplication\MoviesWebApplication\obj\Debug\netcoreapp3.1\Razor\Views\People\Index.cshtml.g.cs
+C:\Users\karla\source\repos\lenabojanowska\MoviesWebApplication\MoviesWebApplication\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Authentication.AzureAD.UI.Views.dll
+C:\Users\karla\source\repos\lenabojanowska\MoviesWebApplication\MoviesWebApplication\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Authentication.AzureAD.UI.dll
+C:\Users\karla\source\repos\lenabojanowska\MoviesWebApplication\MoviesWebApplication\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\karla\source\repos\lenabojanowska\MoviesWebApplication\MoviesWebApplication\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Authentication.OpenIdConnect.dll
+C:\Users\karla\source\repos\lenabojanowska\MoviesWebApplication\MoviesWebApplication\obj\Debug\netcoreapp3.1\MoviesWebApplication.MvcApplicationPartsAssemblyInfo.cs

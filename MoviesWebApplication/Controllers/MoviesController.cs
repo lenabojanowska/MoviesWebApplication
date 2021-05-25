@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using MoviesWebApplication.Data;
@@ -51,6 +52,13 @@ namespace MoviesWebApplication.Controllers
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
+        [Authorize]
+        public async Task<IActionResult> TopLists()
+        {
+            return View();
+        }
+
+        [Authorize]
         public async Task<IActionResult> ActionMovies()
         {
             return View();
