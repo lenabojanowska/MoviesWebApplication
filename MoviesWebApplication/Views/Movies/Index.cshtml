@@ -6,32 +6,85 @@
 
 <h1>All Movies</h1>
 
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <script type="text/javascript" src="~/js/jquery-1.10.2.min.js"></script>
+    @if (Model.Count() > 0)
+    {
+        @foreach (var movie in Model)
+        {
+            <div class="item m-4">
+
+                
+                <script>
+                    $(document).ready(function () {
+                        $("#Save").click(function () {
+                            $.getJSON('https://www.omdbapi.com/?apikey=74e33cd2&i=tt' + @movie.Id , function (data) {
+                                console.log(data);
+                            });
+                        });
+                    });
+                </script>
+
+            </div>
+        }
+    }
+</head>
+<body>
+    <input type="button" id="Save" value="Get Data" />
+</body>
+</html>
+
+
+@*@if (Model.Count() > 0)
+    {
+        @foreach (var movie in Model)
+        {
+    <div class="item m-4">
+        <script>
+
+            $.get("http://www.omdbapi.com/?apikey=74e33cd2&i=tt0944947", function (response) {
+                $("#reply").text(response['1'].Title)
+                for (var i = 0; i < response.length; i++) {
+                    console.log(response)
+                }
+            }
+
+                $.getJSON
+        </script>
+*@
+
+
+
+@*  <button type="button" onclick="loadDoc()">Request data</button>
+
+            <p id="demo"></p>
+            <img id="myimage" />
+
+            <script>
+    function loadDoc() {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                var data = JSON.parse(this.responseText);
+                document.getElementById("myimage").src = data.results[0].picture.large
+            }
+        };
+        xhttp.open("GET", "http://www.omdbapi.com/?apikey=74e33cd2&i=tt0944947"  , true);
+        xhttp.send();
+    }
+            </script>*@
+@*</div>
+        }
+    }*@
 <p>
     <a asp-action="Create">Create New</a>
 </p>
 
-@if (Model.Count() > 0)
-{
-    @foreach (var movie in Model)
-    {
-<div class="item m-4">
- 
-    <script>
-        $.get("http://www.omdbapi.com/?apikey=74e33cd2&i=tt" + @movie.Id, function (response) {
-            $("#reply").text(response['1'].Title)
-            for (var i = 0; i < response.length; i++) {
-                response[i].Title
-               
-                };
-        console.log(response)
-    }
-    </script>
 
-    <a asp-action="Details" asp-route-id="@movie.Id" />
-
-</div>
-    }
-}
+      
 
 
 
@@ -56,11 +109,11 @@
                     @Html.DisplayFor(modelItem => item.Title)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Year)
+                    @Html.DisplayFor(modelItem => item.Id)
                 </td>
                 <td>
                     <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> | 
+                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
                     <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
                 </td>
             </tr>
