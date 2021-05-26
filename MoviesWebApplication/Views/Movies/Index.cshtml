@@ -4,18 +4,17 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>All Movies</h1>
-
-
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
+
     <style>
         #posters {
             width: 200px;
             height: 300px;
             margin:30px;
         }
+
         #myInput {
             background-image: url('/css/searchicon.png'); 
             background-position: 10px 12px; 
@@ -30,40 +29,29 @@
     </style>
 
     <script type="text/javascript" src="~/js/jquery-1.10.2.min.js"></script>
-
     <script type="text/javascript" src="~/scripts/jquery.js"></script>
   
         @foreach (var movie in Model)
         {
             <div class="item m-4">
-              
-
                     <script>
-
+                        
                     $(document).ready(function () {
-
-                        $.getJSON('https://www.omdbapi.com/?apikey=74e33cd2&i=tt' + @movie.Id , function (data) {
+                        $.getJSON('https://www.omdbapi.com/?apikey=' + '74e33cd2' +'&i=tt' + @movie.Id , function (data) {
                            // console.log(data.Poster);
                             var article_data = '';
-                          
-                               
-
                             article_data += '<img src=" ' + data.Poster +' " id="posters"/>';
                             $('#article_table').append(article_data);
 
-                        });
-                        
+                        });                        
                     });
-
-                    </script>
-              
-
+                    </script>      
             </div>
-
         }
     
 </head>
 <body>
+    <h1>All Movies</h1>
     <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for movies..">
 
     @foreach (var movie in Model)
@@ -76,7 +64,6 @@
             </a>
         </div>
     }
-
 
 </body>
 </html>

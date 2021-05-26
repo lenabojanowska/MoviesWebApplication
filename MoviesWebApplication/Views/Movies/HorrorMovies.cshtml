@@ -1,3 +1,28 @@
 ﻿@{ ViewData["Title"] = "DramaMovies"; }
 
-<h1>Horror Movies</h1>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+
+    <style>
+        #myInput {
+            background-image: url('/css/searchicon.png');
+            background-position: 10px 12px;
+            background-repeat: no-repeat;
+            width: 100%;
+            font-size: 16px;
+            padding: 12px 20px 12px 40px;
+            border: 1px solid #ddd;
+            margin-bottom: 12px;
+        }
+    </style>
+
+    <script type="text/javascript" src="~/js/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="~/scripts/jquery.js"></script>
+</head>
+<body>
+    <h1>Horror Movies</h1>
+    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for movies..">
+
+</body>
+</html>

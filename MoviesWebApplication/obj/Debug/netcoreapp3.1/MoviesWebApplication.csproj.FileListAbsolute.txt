@@ -374,4 +374,4 @@ C:\Users\PC\source\repos\MoviesWebApplication\MoviesWebApplication\bin\Debug\net
 C:\Users\PC\source\repos\MoviesWebApplication\MoviesWebApplication\obj\Debug\netcoreapp3.1\Razor\Views\Login\Login.cshtml.g.cs
 C:\Users\PC\source\repos\MoviesWebApplication\MoviesWebApplication\obj\Debug\netcoreapp3.1\Razor\Views\Login\Logout.cshtml.g.cs
 C:\Users\PC\source\repos\MoviesWebApplication\MoviesWebApplication\obj\Debug\netcoreapp3.1\Razor\Views\Login\Register.cshtml.g.cs
-C:\Users\PC\source\repos\MoviesWebApplication\MoviesWebApplication\obj\Debug\netcoreapp3.1\Razor\Views\Movies\Index - kopiować.cshtml.g.cs
+C:\Users\PC\source\repos\MoviesWebApplication\MoviesWebApplication\obj\Debug\netcoreapp3.1\Razor\Views\Movies\IndexCopy.cshtml.g.cs
