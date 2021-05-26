@@ -3,6 +3,8 @@ attach new DB to an old one under name 'Movie'
 run following commands:
 
 INSERT INTO Movie.movies SELECT * FROM movies
+delete from movies where Id<1000000
+
 INSERT INTO Movie.people SELECT * FROM people
 
 INSERT INTO Movie.ratings(MovieId,Rating,Votes)
