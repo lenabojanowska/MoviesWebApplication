@@ -1,33 +1,35 @@
 ﻿@model MoviesWebApplication.Data.MovieDBO
 
+
 @{
     ViewData["Title"] = "Details";
 }
 
-<h1>Details</h1>
+<h1>Movie Details</h1>
+<h3>@Model.Title</h3>
 <div class="text-white container">
-    
+
     <hr />
 
     <div class="detailbox row">
 
-        
+
 
         <div class="col-md-9 col-sm-10">
             <div class="row pr-3">
                 <div class="col-md-7">
-                   
+
 
                 </div>
                 <div class="col-md-5">
                     <h6></h6><br />
 
                     <h6><span class="text-danger">Director</span></h6>
-                    <h6><span class="text-danger">Actors</span> </h6>
+                    <h6><span class="text-danger">Actors</span></h6>
                     <h6><span class="text-danger">Producer</span></h6>
                     <h6><span class="text-danger">Runtime</span></h6>
                     <h6><span class="text-danger">Release</span></h6>
-                   
+
                 </div>
             </div>
         </div>
