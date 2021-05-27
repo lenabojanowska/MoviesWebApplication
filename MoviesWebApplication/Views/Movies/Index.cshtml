@@ -22,7 +22,8 @@
         }
 
         #myInput {
-            background-image: url('/wwwroot/Images/zoom.png');
+            background-image: url('/Images/zoom.png');
+            background-size: 20px;
             background-position: 10px 12px;
             background-repeat: no-repeat;
             width: 100%;
@@ -49,7 +50,7 @@
                             //74e33cd2
                             console.log(data.Title);
                             var article_data = '';
-                            if (data.Poster == "N/A" || data == null || data == undefined) {
+                            if (data.Poster == "N/A" || data.Poster == null) {
                                 article_data += '<img src="/Images/possible_logo.png" alt=" ' + data.Title + ' "  id="' + data.Title + '" class="errorPosters" />';
                             } else {
                                 article_data += '<img src=" ' + data.Poster + ' " alt=" ' + data.Title + ' "  id="' + data.Title + '" class="posters"/>';
