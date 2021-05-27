@@ -1,25 +1,21 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\karla\\source\\repos\\lenabojanowska\\MoviesWebApplication\\MoviesWebApplication\\MoviesWebApplication.csproj": {}
+    "C:\\Users\\PC\\source\\repos\\MoviesWebApplication\\MoviesWebApplication\\MoviesWebApplication.csproj": {}
   },
   "projects": {
-    "C:\\Users\\karla\\source\\repos\\lenabojanowska\\MoviesWebApplication\\MoviesWebApplication\\MoviesWebApplication.csproj": {
+    "C:\\Users\\PC\\source\\repos\\MoviesWebApplication\\MoviesWebApplication\\MoviesWebApplication.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\karla\\source\\repos\\lenabojanowska\\MoviesWebApplication\\MoviesWebApplication\\MoviesWebApplication.csproj",
+        "projectUniqueName": "C:\\Users\\PC\\source\\repos\\MoviesWebApplication\\MoviesWebApplication\\MoviesWebApplication.csproj",
         "projectName": "MoviesWebApplication",
-        "projectPath": "C:\\Users\\karla\\source\\repos\\lenabojanowska\\MoviesWebApplication\\MoviesWebApplication\\MoviesWebApplication.csproj",
-        "packagesPath": "C:\\Users\\karla\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\karla\\source\\repos\\lenabojanowska\\MoviesWebApplication\\MoviesWebApplication\\obj\\",
+        "projectPath": "C:\\Users\\PC\\source\\repos\\MoviesWebApplication\\MoviesWebApplication\\MoviesWebApplication.csproj",
+        "packagesPath": "C:\\Users\\PC\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\PC\\source\\repos\\MoviesWebApplication\\MoviesWebApplication\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\"
-        ],
         "configFilePaths": [
-          "C:\\Users\\karla\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Users\\PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
@@ -99,7 +95,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
         }
       }
     }

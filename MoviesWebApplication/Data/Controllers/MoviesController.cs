@@ -34,7 +34,7 @@ namespace MoviesWebApplication.Data.Controllers
         //}
 
         // GET: Movies/Details/5
-        public async Task<IActionResult> Details(int? id)
+        public async Task<IActionResult> Details(string id)
         {
             if (id == null)
             {
@@ -42,7 +42,7 @@ namespace MoviesWebApplication.Data.Controllers
             }
 
             var movieDBO = await _context.Movies
-                .FirstOrDefaultAsync(m => m.Id == id);
+                .FirstOrDefaultAsync(m => m.Title == id);
             if (movieDBO == null)
             {
                 return NotFound();
