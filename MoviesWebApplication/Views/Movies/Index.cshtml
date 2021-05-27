@@ -4,38 +4,67 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Title)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Year)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Title)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Year)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+    <style>
+        #posters {
+            width: 200px;
+            height: 300px;
+            margin:30px;
+        }
+
+        #myInput {
+           
+            background-position: 10px 12px; 
+            background-repeat: no-repeat; 
+            width: 100%; 
+            font-size: 16px; 
+            padding: 12px 20px 12px 40px; 
+            border: 1px solid #ddd; 
+            margin-bottom: 12px; 
+        }
+        
+    </style>
+
+    <script type="text/javascript" src="~/js/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="~/scripts/jquery.js"></script>
+  
+        @foreach (var movie in Model)
+        {
+            <div class="item m-4">
+                    <script>
+                        
+                    $(document).ready(function () {
+                        $.getJSON('https://www.omdbapi.com/?apikey=' + '74e33cd2' +'&i=tt' + @movie.Id , function (data) {
+                           // console.log(data.Poster);
+                            var article_data = '';
+                            article_data += '<img src=" ' + data.Poster +' " id="posters"/>';
+                            $('#article_table').append(article_data);
+
+                        });                        
+                    });
+                    </script>      
+            </div>
+        }
+    
+</head>
+<body>
+    <h1>All Movies</h1>
+    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for movies..">
+
+    @foreach (var movie in Model)
+    {
+        <div class="item m-4">
+            <a asp-action="Details" asp-route-id="@movie.Id">
+                <div id="article_table">
+
+                </div>
+            </a>
+        </div>
+    }
+
+</body>
+</html>
+
