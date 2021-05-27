@@ -31,7 +31,7 @@ namespace MoviesWebApplication.Controllers
             if (list.Count() > 0)
             {
                 int i = 0;
-                while (i <= 15)
+                while (i <= 79)
                 {
                     l.Add(list.ElementAt(r.Next(0, list.Count())));
                     i++;
