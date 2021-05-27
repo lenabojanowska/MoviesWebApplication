@@ -29,9 +29,11 @@ namespace MoviesWebApplication
                 var services = scope.ServiceProvider;
                 try
                 {
-                    var context = services.GetRequiredService<MoviesContext>();
-                    context.Database.EnsureCreated();
-                    // DbInitializer.Initialize(context);
+                    var context1 = services.GetRequiredService<MoviesContext>();
+                    context1.Database.EnsureCreated();
+
+                    var context2 = services.GetRequiredService<UsersContext>();
+                    context2.Database.EnsureCreated();
                 }
                 catch (Exception ex)
                 {

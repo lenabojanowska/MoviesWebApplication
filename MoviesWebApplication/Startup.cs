@@ -37,6 +37,9 @@ namespace MoviesWebApplication
             services.AddDbContext<MoviesContext>(options =>
                 options.UseSqlite(Configuration.GetConnectionString("MoviesContext")));
 
+            services.AddDbContext<UsersContext>(options =>
+               options.UseSqlServer(Configuration.GetConnectionString("UsersContext")));
+
             services.AddControllersWithViews(options =>
             {
                 //var policy = new AuthorizationPolicyBuilder()
