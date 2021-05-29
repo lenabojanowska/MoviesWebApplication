@@ -406,3 +406,4 @@ C:\Users\PC\source\repos\MoviesWebApplication\MoviesWebApplication\obj\Debug\net
 C:\Users\PC\source\repos\MoviesWebApplication\MoviesWebApplication\obj\Debug\netcoreapp3.1\Razor\Views\People\Edit.cshtml.g.cs
 C:\Users\PC\source\repos\MoviesWebApplication\MoviesWebApplication\obj\Debug\netcoreapp3.1\Razor\Views\People\Index.cshtml.g.cs
 C:\Users\PC\source\repos\MoviesWebApplication\MoviesWebApplication\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_LoginPartial.cshtml.g.cs
+C:\Users\PC\source\repos\MoviesWebApplication\MoviesWebApplication\obj\Debug\netcoreapp3.1\Razor\Views\Movies\TopLists.cshtml.g.cs

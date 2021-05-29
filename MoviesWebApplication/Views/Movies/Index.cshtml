@@ -68,32 +68,35 @@
                     <script>
 
                     $(document).ready(function () {
-                        $.getJSON('https://www.omdbapi.com/?apikey=' + 'a0b6e7bc' + '&i=tt' + @movie.Id , function (data) {
+                        $.getJSON('https://www.omdbapi.com/?apikey=' + '74e33cd2' + '&i=tt' + @movie.Id , function (data) {
                             //a0b6e7bc
                             //74e33cd2
                             console.log(data.Title);
+                            if (data.Genre == "Drama") {
+
+                           
                             var article_data = '';
                             if (data.Poster == "N/A" || data.Poster == null) {
                                 article_data += '<img src="/Images/possible_logo.png" alt=" ' + data.Title + ' "  id="' + data.Title + '" class="errorPosters" />';
                             } else {
                                 article_data += '<img src=" ' + data.Poster + ' " alt=" ' + data.Title + ' "  id="' + data.Title + '" class="posters"/>';
                             }
-                                var images = document.getElementsByTagName("img");
-                                for (var i = 0; i < images.length; i++) {
-                                    var image = images[i];
-                                    image.onclick = function (event) {
+                            var images = document.getElementsByTagName("img");
+                            for (var i = 0; i < images.length; i++) {
+                                var image = images[i];
+                                image.onclick = function (event) {
 
-                                        window.location.href = 'https://localhost:44329/Movies/Details/' + this.id;
+                                    window.location.href = 'https://localhost:44329/Movies/Details/' + this.id;
 
 
 
-                                    };
-                                }
+                                };
+                            }
 
 
 
                             $('#article_table').append(article_data);
-
+                        }
                         });
                     });
                     </script>
