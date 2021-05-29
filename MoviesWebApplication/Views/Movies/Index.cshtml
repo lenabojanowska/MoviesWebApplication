@@ -9,62 +9,100 @@
 <head runat="server">
 
     <style>
-        #posters {
+        .posters {
             width: 200px;
             height: 300px;
-            margin:30px;
+            margin: 35px;
+        }
+
+        .errorPosters {
+            width: 200px;
+            height: 300px;
+            margin: 35px;
         }
 
         #myInput {
-           
-            background-position: 10px 12px; 
-            background-repeat: no-repeat; 
-            width: 100%; 
-            font-size: 16px; 
-            padding: 12px 20px 12px 40px; 
-            border: 1px solid #ddd; 
-            margin-bottom: 12px; 
+            background-image: url('/Images/zoom.png');
+            background-size: 20px;
+            background-position: 10px 12px;
+            background-repeat: no-repeat;
+            width: 100%;
+            font-size: 16px;
+            padding: 12px 20px 12px 40px;
+            border: 1px solid #ddd;
+            margin-bottom: 12px;
         }
-        
     </style>
 
-    <script type="text/javascript" src="~/js/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="~/js/jquery-1.10.2.min.js"  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="   crossorigin="anonymous"></script>
     <script type="text/javascript" src="~/scripts/jquery.js"></script>
-  
-        @foreach (var movie in Model)
-        {
-            <div class="item m-4">
-                    <script>
-                        
-                    $(document).ready(function () {
-                        $.getJSON('https://www.omdbapi.com/?apikey=' + '74e33cd2' +'&i=tt' + @movie.Id , function (data) {
-                           // console.log(data.Poster);
-                            var article_data = '';
-                            article_data += '<img src=" ' + data.Poster +' " id="posters"/>';
-                            $('#article_table').append(article_data);
-
-                        });                        
-                    });
-                    </script>      
-            </div>
-        }
+   
     
 </head>
 <body>
     <h1>All Movies</h1>
-    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for movies..">
-
-    @foreach (var movie in Model)
-    {
-        <div class="item m-4">
-            <a asp-action="Details" asp-route-id="@movie.Id">
-                <div id="article_table">
-
-                </div>
-            </a>
-        </div>
-    }
+    <input type="text" id="myInput" name="search" placeholder="Search for movies..">
+    <div id="article_table"></div>
 
 </body>
 </html>
 
+<script>
+    $("#myInput").keyup(function () {
+        var val = $.trim(this.value);
+        if (val === "")
+            $('img').show();
+        else {
+            $('img').hide();
+            val = val.split(" ").join("\\ ");
+            $("img[alt*=" + val + " i]").show();
+        }
+    });
+</script>
+ @if (Model.Count() > 0)
+    {
+        <div class="wrapper row">
+            @foreach (var movie in Model)
+            {
+                <div class="item m-4">
+                    <script>
+
+                    $(document).ready(function () {
+                        $.getJSON('https://www.omdbapi.com/?apikey=' + 'a0b6e7bc' + '&i=tt' + @movie.Id , function (data) {
+                            //a0b6e7bc
+                            //74e33cd2
+                            console.log(data.Title);
+                            var article_data = '';
+                            if (data.Poster == "N/A" || data.Poster == null) {
+                                article_data += '<img src="/Images/possible_logo.png" alt=" ' + data.Title + ' "  id="' + data.Title + '" class="errorPosters" />';
+                            } else {
+                                article_data += '<img src=" ' + data.Poster + ' " alt=" ' + data.Title + ' "  id="' + data.Title + '" class="posters"/>';
+                            }
+                                var images = document.getElementsByTagName("img");
+                                for (var i = 0; i < images.length; i++) {
+                                    var image = images[i];
+                                    image.onclick = function (event) {
+
+                                        window.location.href = 'https://localhost:44329/Movies/Details/' + this.id;
+
+
+
+                                    };
+                                }
+
+
+
+                            $('#article_table').append(article_data);
+
+                        });
+                    });
+                    </script>
+
+                </div>
+            }
+        </div>
+    }
+    else
+    {
+        <h4>No Movies Available Right Now</h4>
+    }
