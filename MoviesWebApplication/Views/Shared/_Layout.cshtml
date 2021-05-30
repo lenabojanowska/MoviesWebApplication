@@ -20,17 +20,19 @@
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
+                <a class="navbar-brand" asp-area="" asp-controller="Movies" asp-action="Movies">Movies</a>
+                <a class="navbar-brand" asp-area="" asp-controller="Movies" asp-action="Series">Series</a>
                 <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
                     <partial name="_LoginPartial" />
                     <ul class="navbar-nav flex-grow-1">
 
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Movies
+                                Genre
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
 
-                                <a class="dropdown-item" asp-action="Details" asp-controller="Movies" asp-area="">Action</a>
+                                <a class="dropdown-item" asp-action="TopLists" asp-controller="Movies" asp-area="">Action</a>
 
                                 <a class="dropdown-item" asp-action="AdventureMovies" asp-controller="Movies">Adventure</a>
 
@@ -46,20 +48,20 @@
                     </ul>
                 </div>
                 @*<a class="navbar-brand" asp-area="" asp-controller="Movies" asp-action="TopLists">Top Lists</a>
-                <div>
-                    @if (User.Identity.IsAuthenticated)
-                    {
-                        <li class="nav-item">
-                            Hello @User.Identity.Name
-                        </li>
-                    }
-                    else
-                    {
-                        <li class="nav-item">
-                            Not logged in.
-                        </li>
-                    }
-                </div>*@
+        <div>
+            @if (User.Identity.IsAuthenticated)
+            {
+                <li class="nav-item">
+                    Hello @User.Identity.Name
+                </li>
+            }
+            else
+            {
+                <li class="nav-item">
+                    Not logged in.
+                </li>
+            }
+        </div>*@
             </div>
         </nav>
     </header>

@@ -1,0 +1,81 @@
+﻿@{
+    ViewData["Title"] = "TopLists";
+}
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+
+    <style>
+        .posters {
+            width: 200px;
+            height: 300px;
+            margin: 35px;
+        }
+
+        .errorPosters {
+            width: 200px;
+            height: 300px;
+            margin: 35px;
+        }
+
+        #text{
+            font-size:30px;
+        }
+        
+        #posters{
+            width: 100px;
+            height:150px;
+        }
+    </style>
+
+    <script type="text/javascript" src="~/js/jquery-1.10.2.min.js" integrity="" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="~/scripts/jquery.js"></script>
+
+
+</head>
+<body>
+    <h1>Top Rated</h1>
+    <div id="cardContainer">
+       </div>
+
+</body>
+</html>
+
+<script>
+
+                    $(document).ready(function () {
+                        $.getJSON('https://api.themoviedb.org/3/movie/top_rated?api_key=fdde54599d906f755b9911ea4553bd7d&language=en-US&page=1', function (data) {
+                            //a0b6e7bc
+                            //74e33cd2
+                            //console.log(data.results['0'].original_title);
+
+                            var contentString = [];
+                            for (var i = 0; i < data.results.length; i++) {
+
+                                console.log(data.results[i].poster_path);
+                                var links = "https://image.tmdb.org/t/p/w185" + data.results[i].poster_path;
+                                contentString[i] = '<table>' +
+                                    '<tbody>' +
+                                    '<tr>' +
+                                    '<th>' +
+                                    '<img id ="posters" src=' + links +' />' +
+                                    '</th>' +
+                                    '<th id="text">' +
+                                    data.results[i].title +
+                                    '</th>' +
+                                    '</tr>' +
+                                    '</tbody>' +
+                                    '</table></br>'
+
+
+
+                                   
+
+                                $('#cardContainer').append(contentString[i]);
+                              
+                            }
+                        });
+                    });
+    //https://image.tmdb.org/t/p/w185/
+</script>

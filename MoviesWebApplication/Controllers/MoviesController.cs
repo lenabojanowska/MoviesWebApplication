@@ -31,7 +31,7 @@ namespace MoviesWebApplication.Controllers
             if (list.Count() > 0)
             {
                 int i = 0;
-                while (i <= 79)
+                while (i <= 199)
                 {
                     l.Add(list.ElementAt(r.Next(0, list.Count())));
                     i++;
@@ -59,39 +59,154 @@ namespace MoviesWebApplication.Controllers
         }
 
         [Authorize]
-        public async Task<IActionResult> ActionMovies()
+        public async Task<IActionResult> ActionMoviesAsync()
         {
-            return View();
+            var list = await _context.Movies.ToListAsync();
+            var r = new Random();
+            var l = new List<MovieDBO>();
+            if (list.Count() > 0)
+            {
+                int i = 0;
+                while (i <= 199)
+                {
+                    l.Add(list.ElementAt(r.Next(0, list.Count())));
+                    i++;
+                }
+            }
+
+            return View(l);
+          
         }
 
         public async Task<IActionResult> AdventureMovies()
         {
-            return View();
+            var list = await _context.Movies.ToListAsync();
+            var r = new Random();
+            var l = new List<MovieDBO>();
+            if (list.Count() > 0)
+            {
+                int i = 0;
+                while (i <= 79)
+                {
+                    l.Add(list.ElementAt(r.Next(0, list.Count())));
+                    i++;
+                }
+            }
+
+            return View(l);
         }
 
         public async Task<IActionResult> ComedyMovies()
         {
-            return View();
+            var list = await _context.Movies.ToListAsync();
+            var r = new Random();
+            var l = new List<MovieDBO>();
+            if (list.Count() > 0)
+            {
+                int i = 0;
+                while (i <= 79)
+                {
+                    l.Add(list.ElementAt(r.Next(0, list.Count())));
+                    i++;
+                }
+            }
+
+            return View(l);
         }
 
         public async Task<IActionResult> DramaMovies()
         {
-            return View();
+            var list = await _context.Movies.ToListAsync();
+            var r = new Random();
+            var l = new List<MovieDBO>();
+            if (list.Count() > 0)
+            {
+                int i = 0;
+                while (i <= 79)
+                {
+                    l.Add(list.ElementAt(r.Next(0, list.Count())));
+                    i++;
+                }
+            }
+
+            return View(l);
         }
 
         public async Task<IActionResult> HorrorMovies()
         {
-            return View();
+            var list = await _context.Movies.ToListAsync();
+            var r = new Random();
+            var l = new List<MovieDBO>();
+            if (list.Count() > 0)
+            {
+                int i = 0;
+                while (i <= 79)
+                {
+                    l.Add(list.ElementAt(r.Next(0, list.Count())));
+                    i++;
+                }
+            }
+
+            return View(l);
         }
 
         public async Task<IActionResult> RomanceMovies()
         {
-            return View();
+            var list = await _context.Movies.ToListAsync();
+            var r = new Random();
+            var l = new List<MovieDBO>();
+            if (list.Count() > 0)
+            {
+                int i = 0;
+                while (i <= 79)
+                {
+                    l.Add(list.ElementAt(r.Next(0, list.Count())));
+                    i++;
+                }
+            }
+
+            return View(l);
         }
 
         public async Task<IActionResult> MovieDetails()
         {
             return View();
+        }
+
+        public async Task<IActionResult> MoviesAsync()
+        {
+            var list = await _context.Movies.ToListAsync();
+            var r = new Random();
+            var l = new List<MovieDBO>();
+            if (list.Count() > 0)
+            {
+                int i = 0;
+                while (i <= 79)
+                {
+                    l.Add(list.ElementAt(r.Next(0, list.Count())));
+                    i++;
+                }
+            }
+
+            return View(l);
+        }
+
+        public async Task<IActionResult> SeriesAsync()
+        {
+            var list = await _context.Movies.ToListAsync();
+            var r = new Random();
+            var l = new List<MovieDBO>();
+            if (list.Count() > 0)
+            {
+                int i = 0;
+                while (i <= 79)
+                {
+                    l.Add(list.ElementAt(r.Next(0, list.Count())));
+                    i++;
+                }
+            }
+
+            return View(l);
         }
     }
 }
