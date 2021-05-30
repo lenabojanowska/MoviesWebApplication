@@ -55,6 +55,8 @@
                         <h6 id="release">Release: </h6>
                         <h6 id="country">Country: </h6>
                         <h6 id="language">Language: </h6>
+                        <h6 style="display:inline;" id="rating">Rating: </h6><h6 style="display:inline;" id="votes"> (</h6><h6 style="display:inline;" > votes)</h6>
+                        
 
                     </div>
                 </div>
@@ -68,10 +70,10 @@
 <script>
 
                     $(document).ready(function () {
-                        $.getJSON('https://www.omdbapi.com/?apikey=' + '74e33cd2' + '&i=tt' + @Model.Id , function (data) {
+                        $.getJSON('https://www.omdbapi.com/?apikey=' + '4713f8' + '&i=tt' + @Model.Id , function (data) {
                             //a0b6e7bc
                             //74e33cd2
-                            
+
                             var about_data = data.Plot;
                             var director_data = data.Director;
                             var actors_data = data.Actors;
@@ -82,6 +84,10 @@
                             var language_data = data.Language;
                             var country_data = data.Country;
                             var year_data = data.Year;
+                            var rating_data = data.Ratings[0].Value;
+                            var votes_data = data.imdbVotes;
+
+
                             console.log(about_data);
                             var article_data = '';
                             if (data.Poster == "N/A" || data.Poster == null) {
@@ -90,9 +96,11 @@
                                 article_data += '<img src=" ' + data.Poster + ' " alt=" ' + data.Title + ' "  id="' + data.Title + '" class="posters"/>';
                             }
 
+                    
+
                             $('#article_table').append(article_data);
                             $('#about').append(about_data);
-                            $('#director').append(director_data);                           
+                            $('#director').append(director_data);
                             $('#runtime').append(runtime_data);
                             $('#release').append(release_data);
                             $('#category').append(category_data);
@@ -101,7 +109,9 @@
                             $('#country').append(country_data);
                             $('#language').append(language_data);
                             $('#year').append(year_data);
-                          
+                            $('#rating').append(rating_data);
+                            $('#votes').append(votes_data);
+
                         });
                     });
 </script>
