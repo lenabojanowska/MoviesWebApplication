@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using MoviesWebApplication.Data;
+using MoviesWebApplication.Models;
 
 namespace MoviesWebApplication.Data.Controllers
 {
@@ -41,14 +42,29 @@ namespace MoviesWebApplication.Data.Controllers
                 return NotFound();
             }
 
-            var movieDBO = await _context.Movies
-                .FirstOrDefaultAsync(m => m.Title == id);
+            var movieDBO = await _context.Movies.FirstOrDefaultAsync(m => m.Title == id);
             if (movieDBO == null)
             {
                 return NotFound();
             }
 
-            return View(movieDBO);
+            var rating = await _context.Ratings.FirstOrDefaultAsync(m => m.MovieId == movieDBO.Id);
+            if (rating == null)
+            {
+                rating = new DBO.RatingDBO();
+                rating.Rating = 0;
+                rating.Votes = 0;
+            }
+
+            MoviesModel model = new MoviesModel
+            {
+                Id = movieDBO.Id,
+                Name = movieDBO.Title,
+                Rating = (int)rating.Rating,
+                Votes = rating.Votes
+            };
+
+            return View(model);
         }
 
         // GET: Movies/Create

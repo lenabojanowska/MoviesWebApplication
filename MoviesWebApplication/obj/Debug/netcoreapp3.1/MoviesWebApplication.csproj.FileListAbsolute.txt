@@ -410,3 +410,8 @@ C:\Users\PC\source\repos\MoviesWebApplication\MoviesWebApplication\obj\Debug\net
 C:\Users\PC\source\repos\MoviesWebApplication\MoviesWebApplication\obj\Debug\netcoreapp3.1\Razor\Views\Movies\Series.cshtml.g.cs
 C:\Users\PC\source\repos\MoviesWebApplication\MoviesWebApplication\obj\Debug\netcoreapp3.1\Razor\Views\Movies\Movies.cshtml.g.cs
 C:\Users\PC\source\repos\MoviesWebApplication\MoviesWebApplication\obj\Debug\netcoreapp3.1\Razor\Views\Movies\Statistics.cshtml.g.cs
+C:\Users\karla\source\repos\lenabojanowska\MoviesWebApplication\MoviesWebApplication\obj\Debug\netcoreapp3.1\Razor\Views\Movies\Movies.cshtml.g.cs
+C:\Users\karla\source\repos\lenabojanowska\MoviesWebApplication\MoviesWebApplication\obj\Debug\netcoreapp3.1\Razor\Views\Movies\Series.cshtml.g.cs
+C:\Users\karla\source\repos\lenabojanowska\MoviesWebApplication\MoviesWebApplication\obj\Debug\netcoreapp3.1\Razor\Views\Movies\Statistics.cshtml.g.cs
+C:\Users\karla\source\repos\lenabojanowska\MoviesWebApplication\MoviesWebApplication\obj\Debug\netcoreapp3.1\Razor\Views\Movies\TopLists.cshtml.g.cs
+C:\Users\karla\source\repos\lenabojanowska\MoviesWebApplication\MoviesWebApplication\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_RatePartial.cshtml.g.cs

@@ -1,0 +1,16 @@
+﻿@using System.Security.Principal
+
+<div>
+@if (User.Identity.IsAuthenticated)
+{
+    <div>
+        <h7>LOGGED IN</h7>
+    </div>
+}
+else
+{
+    <div>
+        <h7>Please sign in to rate this movie!</h7>
+    </div>
+}
+</div>
