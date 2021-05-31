@@ -10,17 +10,27 @@
 
     <style>
         .posters {
-            width: 200px;
-            height: 300px;
+            width: 180px;
+            height: 260px;
             margin: 35px;
+           
+        }
+        .box {
+            position: relative;
+            display: inline-block; /* Make the width of box same as image */
         }
 
-        .errorPosters {
-            width: 200px;
-            height: 300px;
-            margin: 35px;
-        }
-
+            .box .text {
+                position: absolute;
+                z-index: 999;
+                margin: 0 auto;
+                left: 0;
+                right: 0;
+                top: 45%; /* Adjust this value to move the positioned div up and down */
+                text-align: center;
+                width: 60%; /* Set the width of the positioned div */
+                color: white;
+            }
         #myInput {
             background-image: url('/Images/zoom.png');
             background-size: 20px;
@@ -32,6 +42,22 @@
             border: 1px solid #ddd;
             margin-bottom: 12px;
         }
+        .left {
+            position: absolute;
+            top: 17px;
+            left: 20px;
+        }
+        .centered {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .container {
+            position: relative;
+
+        }
+
     </style>
 
     <script type="text/javascript" src="~/js/jquery-1.10.2.min.js"  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="   crossorigin="anonymous"></script>
@@ -42,7 +68,7 @@
 <body>
     <h1>All Movies</h1>
     <input type="text" id="myInput" name="search" placeholder="Search for movies..">
-    <div id="article_table"></div>
+    <div class="wrapper row" id="article_table"></div>
 
 </body>
 </html>
@@ -51,11 +77,13 @@
     $("#myInput").keyup(function () {
         var val = $.trim(this.value);
         if (val === "")
-            $('img').show();
+            $('img').show();             
         else {
             $('img').hide();
+           
             val = val.split(" ").join("\\ ");
             $("img[alt*=" + val + " i]").show();
+         
         }
     });
 </script>
@@ -75,12 +103,12 @@
                             console.log(data.Title);
                            
 
-                           
+                            var title = data.Title;
                             var article_data = '';
                             if (data.Poster == "N/A" || data.Poster == null) {
-                                article_data += '<img src="/Images/possible_logo.png" alt=" ' + data.Title + ' "  id="' + data.Title + '" class="errorPosters" />';
+                                article_data += '<div class="box"><img src="/Images/black.jpg" alt=" ' + data.Title + ' "  id="' + data.Title + '" class="posters" /><div alt=" ' + data.Title + ' "  id="' + data.Title +'" class="text"><h6>'+title+'</h6></div></div>';
                             } else {
-                                article_data += '<img src=" ' + data.Poster + ' " alt=" ' + data.Title + ' "  id="' + data.Title + '" class="posters"/>';
+                                article_data += '<div><img  src=" ' + data.Poster + ' " alt=" ' + data.Title + ' "  id="' + data.Title + '" class="posters" /></div>';
                             }
                             var images = document.getElementsByTagName("img");
                             for (var i = 0; i < images.length; i++) {

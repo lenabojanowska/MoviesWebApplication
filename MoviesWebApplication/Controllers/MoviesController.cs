@@ -31,7 +31,7 @@ namespace MoviesWebApplication.Controllers
             if (list.Count() > 0)
             {
                 int i = 0;
-                while (i <= 199)
+                while (i <= 39)
                 {
                     l.Add(list.ElementAt(r.Next(0, list.Count())));
                     i++;
@@ -53,7 +53,7 @@ namespace MoviesWebApplication.Controllers
         }
 
         [Authorize]
-        public async Task<IActionResult> TopLists()
+        public async Task<IActionResult> TopRated()
         {
             return View();
         }
@@ -173,40 +173,5 @@ namespace MoviesWebApplication.Controllers
             return View();
         }
 
-        public async Task<IActionResult> MoviesAsync()
-        {
-            var list = await _context.Movies.ToListAsync();
-            var r = new Random();
-            var l = new List<MovieDBO>();
-            if (list.Count() > 0)
-            {
-                int i = 0;
-                while (i <= 79)
-                {
-                    l.Add(list.ElementAt(r.Next(0, list.Count())));
-                    i++;
-                }
-            }
-
-            return View(l);
-        }
-
-        public async Task<IActionResult> SeriesAsync()
-        {
-            var list = await _context.Movies.ToListAsync();
-            var r = new Random();
-            var l = new List<MovieDBO>();
-            if (list.Count() > 0)
-            {
-                int i = 0;
-                while (i <= 79)
-                {
-                    l.Add(list.ElementAt(r.Next(0, list.Count())));
-                    i++;
-                }
-            }
-
-            return View(l);
-        }
     }
 }
