@@ -35,37 +35,37 @@ namespace MoviesWebApplication.Data.Controllers
         //}
 
         // GET: Movies/Details/5
-        public async Task<IActionResult> Details(string id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
+        //public async Task<IActionResult> Details(string id)
+        //{
+        //    if (id == null)
+        //    {
+        //        return NotFound();
+        //    }
 
-            var movieDBO = await _context.Movies.FirstOrDefaultAsync(m => m.Title == id);
-            if (movieDBO == null)
-            {
-                return NotFound();
-            }
+        //    var movieDBO = await _context.Movies.FirstOrDefaultAsync(m => m.Title == id);
+        //    if (movieDBO == null)
+        //    {
+        //        return NotFound();
+        //    }
 
-            var rating = await _context.Ratings.FirstOrDefaultAsync(m => m.MovieId == movieDBO.Id);
-            if (rating == null)
-            {
-                rating = new DBO.RatingDBO();
-                rating.Rating = 0;
-                rating.Votes = 0;
-            }
+        //    var rating = await _context.Ratings.FirstOrDefaultAsync(m => m.MovieId == movieDBO.Id);
+        //    if (rating == null)
+        //    {
+        //        rating = new DBO.RatingDBO();
+        //        rating.Rating = 0;
+        //        rating.Votes = 0;
+        //    }
 
-            MoviesModel model = new MoviesModel
-            {
-                Id = movieDBO.Id,
-                Name = movieDBO.Title,
-                Rating = (int)rating.Rating,
-                Votes = rating.Votes
-            };
+        //    MoviesModel model = new MoviesModel
+        //    {
+        //        Id = movieDBO.Id,
+        //        Name = movieDBO.Title,
+        //        Rating = (int)rating.Rating,
+        //        Votes = rating.Votes
+        //    };
 
-            return View(model);
-        }
+        //    return View(model);
+        //}
 
         // GET: Movies/Create
         public IActionResult Create()

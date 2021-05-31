@@ -5,6 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Include="Movie.db" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Include="wwwroot\Images\unnamed.png" />
   </ItemGroup>
 

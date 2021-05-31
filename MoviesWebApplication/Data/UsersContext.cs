@@ -14,12 +14,10 @@ namespace MoviesWebApplication.Data
         {
         }
 
-        public DbSet<UserDBO> Users { get; set; }
         public DbSet<ToplistDBO> Toplists { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<UserDBO>().ToTable("users");
             modelBuilder.Entity<ToplistDBO>().ToTable("toplists");
         }
     }

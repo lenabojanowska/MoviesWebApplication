@@ -1,0 +1,58 @@
+﻿@model MoviesWebApplication.Data.DBO.ToplistDBO
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>@Html.DisplayFor(model => model.Name)</h1>
+<br />
+<div>
+    @if (Model.IsPublic)
+    {
+        <h4>Public</h4>
+    }
+    else
+    {
+        <h4>Private</h4>
+    }
+    <hr />
+</div>
+<div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    Title
+                </th>
+                <th>
+                    Year
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model.Movies != null)
+            {
+                @foreach (var item in Model.Movies)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Title)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Year)
+                        </td>
+                        <td>
+                            |
+                            <a asp-action="RemoveMovie" asp-route-id="@Model.Id,@item.Id">Remove</a>
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

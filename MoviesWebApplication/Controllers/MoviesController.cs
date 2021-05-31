@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using MoviesWebApplication.Data;
+using MoviesWebApplication.Data.DBO;
 using MoviesWebApplication.Models;
 using System;
 using System.Collections.Generic;
@@ -168,9 +169,36 @@ namespace MoviesWebApplication.Controllers
             return View(l);
         }
 
-        public async Task<IActionResult> MovieDetails()
+        public async Task<IActionResult> Details(string id)
         {
-            return View();
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var movieDBO = await _context.Movies.FirstOrDefaultAsync(m => m.Title == id);
+            if (movieDBO == null)
+            {
+                return NotFound();
+            }
+
+            var rating = await _context.Ratings.FirstOrDefaultAsync(m => m.MovieId == movieDBO.Id);
+            if (rating == null)
+            {
+                rating = new RatingDBO();
+                rating.Rating = 0;
+                rating.Votes = 0;
+            }
+
+            MoviesModel model = new MoviesModel
+            {
+                Id = movieDBO.Id,
+                Name = movieDBO.Title,
+                Rating = (int)rating.Rating,
+                Votes = rating.Votes
+            };
+
+            return View(model);
         }
 
     }
