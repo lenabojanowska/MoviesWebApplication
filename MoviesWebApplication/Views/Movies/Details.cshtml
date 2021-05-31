@@ -47,30 +47,12 @@
             </div>
             <div class="col-md-8 col-sm-10">
                 <div class="row pr-3">
-                    <div class="col-md-7">
+                    <div class="col-md-6">
                         <h4>@Model.Name</h4>
-                        <br />
-                        <p class="text" id="about"></p>
-                        <h6 id="category">Category : </h6>
-                    </div>
-                    <div class="col-md-5">
-                        <h4>More information</h4>
-                        <br />
-
-                        <h6 id="director">Director : </h6>
-                        <h6 id="writer">Writer: </h6>
-                        <h6 id="actors">Actors: </h6>
-                        <h6 id="year">Year: </h6>
-                        <h6 id="release">Release: </h6>
-                        <h6 id="country">Country: </h6>
-                        <h6 id="language">Language: </h6>
-                        <h6 style="display:inline;" id="rating">Rating: </h6>
-                        <h6 style="display:inline;" id="votes"> (</h6><h6 style="display:inline;"> votes)</h6>
                         @if (Model.Votes > 0)
                         {
-                            <div class="row">
+                            <div class="row" style="align-self:center">
                                 <div style="float: left;">
-                                    <br />
                                     @for (var i = 1; i <= Model.Rating; i++)
                                     {
                                         <span class="starGlowN"></span>
@@ -82,12 +64,29 @@
                                 </div>
                             </div>
                         }
-                        <partial name="_RatePartial" />
+                        <h6 style="display:inline;" id="rating">Rating: </h6>
+                        <h6 style="display:inline;" id="votes"> (</h6><h6 style="display:inline;"> votes)</h6>
+                        <br />
+                        <p class="text" id="about"></p>
+                        <h6 id="category">Category : </h6>
+                    </div>
+                    <div class="col-md-6">
+                        <h4>More information</h4>
+                        <br />
+                        <h6 id="director">Director : </h6>
+                        <h6 id="writer">Writer: </h6>
+                        <h6 id="actors">Actors: </h6>
+                        <h6 id="year">Year: </h6>
+                        <h6 id="release">Release: </h6>
+                        <h6 id="country">Country: </h6>
+                        <h6 id="language">Language: </h6>
+                        <div style="align-content:center">
+                            <partial name="_RatePartial" />
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-
 </body>
 </html>
 
@@ -133,8 +132,8 @@ $(document).ready(function () {
         $('#country').append(country_data);
         $('#language').append(language_data);
         $('#year').append(year_data);
-        $('#rating').append(rating_data);
-        $('#votes').append(votes_data);
+        $('#rating').append(@Model.Rating);
+        $('#votes').append(@Model.Votes);
 
     });
 });

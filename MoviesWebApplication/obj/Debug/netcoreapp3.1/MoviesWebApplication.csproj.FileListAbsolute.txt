@@ -223,7 +223,6 @@ C:\Users\karla\source\repos\lenabojanowska\MoviesWebApplication\MoviesWebApplica
 C:\Users\karla\source\repos\lenabojanowska\MoviesWebApplication\MoviesWebApplication\obj\Debug\netcoreapp3.1\Razor\Views\Movies\Edit.cshtml.g.cs
 C:\Users\karla\source\repos\lenabojanowska\MoviesWebApplication\MoviesWebApplication\obj\Debug\netcoreapp3.1\Razor\Views\Movies\HorrorMovies.cshtml.g.cs
 C:\Users\karla\source\repos\lenabojanowska\MoviesWebApplication\MoviesWebApplication\obj\Debug\netcoreapp3.1\Razor\Views\Movies\Index.cshtml.g.cs
-C:\Users\karla\source\repos\lenabojanowska\MoviesWebApplication\MoviesWebApplication\obj\Debug\netcoreapp3.1\Razor\Views\Movies\IndexCopy.cshtml.g.cs
 C:\Users\karla\source\repos\lenabojanowska\MoviesWebApplication\MoviesWebApplication\obj\Debug\netcoreapp3.1\Razor\Views\Movies\MovieDetails.cshtml.g.cs
 C:\Users\karla\source\repos\lenabojanowska\MoviesWebApplication\MoviesWebApplication\obj\Debug\netcoreapp3.1\Razor\Views\Movies\Privacy.cshtml.g.cs
 C:\Users\karla\source\repos\lenabojanowska\MoviesWebApplication\MoviesWebApplication\obj\Debug\netcoreapp3.1\Razor\Views\Movies\RomanceMovies.cshtml.g.cs
@@ -408,11 +407,12 @@ C:\Users\PC\source\repos\MoviesWebApplication\MoviesWebApplication\obj\Debug\net
 C:\Users\PC\source\repos\MoviesWebApplication\MoviesWebApplication\obj\Debug\netcoreapp3.1\Razor\Views\Movies\Movies.cshtml.g.cs
 C:\Users\PC\source\repos\MoviesWebApplication\MoviesWebApplication\obj\Debug\netcoreapp3.1\Razor\Views\Movies\Statistics.cshtml.g.cs
 C:\Users\karla\source\repos\lenabojanowska\MoviesWebApplication\MoviesWebApplication\obj\Debug\netcoreapp3.1\Razor\Views\Movies\Movies.cshtml.g.cs
-C:\Users\karla\source\repos\lenabojanowska\MoviesWebApplication\MoviesWebApplication\obj\Debug\netcoreapp3.1\Razor\Views\Movies\Series.cshtml.g.cs
 C:\Users\karla\source\repos\lenabojanowska\MoviesWebApplication\MoviesWebApplication\obj\Debug\netcoreapp3.1\Razor\Views\Movies\Statistics.cshtml.g.cs
-C:\Users\karla\source\repos\lenabojanowska\MoviesWebApplication\MoviesWebApplication\obj\Debug\netcoreapp3.1\Razor\Views\Movies\TopLists.cshtml.g.cs
 C:\Users\karla\source\repos\lenabojanowska\MoviesWebApplication\MoviesWebApplication\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_RatePartial.cshtml.g.cs
 C:\Users\PC\source\repos\MoviesWebApplication\MoviesWebApplication\obj\Debug\netcoreapp3.1\Razor\Views\Movies\Popular.cshtml.g.cs
 C:\Users\PC\source\repos\MoviesWebApplication\MoviesWebApplication\obj\Debug\netcoreapp3.1\Razor\Views\Movies\TopRated.cshtml.g.cs
 C:\Users\PC\source\repos\MoviesWebApplication\MoviesWebApplication\obj\Debug\netcoreapp3.1\Razor\Views\Movies\Upcoming.cshtml.g.cs
 C:\Users\PC\source\repos\MoviesWebApplication\MoviesWebApplication\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_RatePartial.cshtml.g.cs
+C:\Users\karla\source\repos\lenabojanowska\MoviesWebApplication\MoviesWebApplication\obj\Debug\netcoreapp3.1\Razor\Views\Movies\Popular.cshtml.g.cs
+C:\Users\karla\source\repos\lenabojanowska\MoviesWebApplication\MoviesWebApplication\obj\Debug\netcoreapp3.1\Razor\Views\Movies\TopRated.cshtml.g.cs
+C:\Users\karla\source\repos\lenabojanowska\MoviesWebApplication\MoviesWebApplication\obj\Debug\netcoreapp3.1\Razor\Views\Movies\Upcoming.cshtml.g.cs

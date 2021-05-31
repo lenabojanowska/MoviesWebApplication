@@ -1,6 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using MoviesWebApplication.Data;
+using MoviesWebApplication.Data.DBO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -35,9 +37,6 @@ namespace MoviesWebApplication.Controllers
 
             ViewBag.MovieId = id.Value;
 
-            //var comments = db.ArticlesComments.Where(d => d.ArticleId.Equals(id.Value)).ToList();
-            //ViewBag.Comments = comments;
-
             var rating = _context.Ratings.FirstOrDefault(p =>p.MovieId==id.Value);
             if (rating != null)
             {
@@ -53,6 +52,43 @@ namespace MoviesWebApplication.Controllers
             }
 
             return View(movie);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Add(IFormCollection form)
+        {
+            var movieID = int.Parse(form["MovieId"]);
+            var rating = int.Parse(form["Rating"]);
+
+            var originalRate = _context.Ratings.FirstOrDefault(p => p.MovieId == movieID);
+            var movie = _context.Movies.FirstOrDefault(p => p.Id == movieID);
+
+            var rate = new RatingDBO
+            {
+                MovieId = movieID,
+                Movie = movie,
+                Rating = rating,
+                Votes = 1
+            };
+
+            if (originalRate != null)
+            {
+                var oldScore = originalRate.Rating;
+                var newVotes = originalRate.Votes + 1;
+                var newScore = (oldScore * (newVotes - 1) + rating) / newVotes;
+
+                rate.Rating = newScore;
+                rate.Votes = newVotes;
+                rate.Id = originalRate.Id;
+
+                _context.Remove(originalRate);
+            }
+
+            _context.Ratings.Add(rate);
+            _context.SaveChanges();
+
+            return RedirectToAction("Details", "Movies", new { id = movie.Title });
         }
     }
 }

@@ -26,7 +26,7 @@ namespace MoviesWebApplication.Data
             modelBuilder.Entity<PersonDBO>().ToTable("people");
             modelBuilder.Entity<DirectorDBO>().ToTable("directors").HasNoKey();
             modelBuilder.Entity<StarDBO>().ToTable("stars").HasNoKey();
-            modelBuilder.Entity<RatingDBO>().ToTable("ratings").HasNoKey();
+            modelBuilder.Entity<RatingDBO>().ToTable("ratings");
         }
     }
 }
