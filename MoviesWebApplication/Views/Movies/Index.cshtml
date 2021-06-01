@@ -10,8 +10,8 @@
 
     <style>
         .posters {
-            width: 180px;
-            height: 260px;
+            width: 210px;
+            height: 300px;
             margin: 35px;
            
         }
@@ -76,14 +76,15 @@
 <script>
     $("#myInput").keyup(function () {
         var val = $.trim(this.value);
-        if (val === "")
-            $('img').show();             
-        else {
+        if (val === "") {
+            $('.text').show();
+            $('img').show();
+        }else {
             $('img').hide();
-           
+           $('.text').hide();
             val = val.split(" ").join("\\ ");
             $("img[alt*=" + val + " i]").show();
-         
+            $(".text[alt*=" + val + " i]").show();
         }
     });
 </script>

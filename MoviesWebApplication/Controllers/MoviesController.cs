@@ -53,7 +53,7 @@ namespace MoviesWebApplication.Controllers
         }
 
         [Authorize]
-        public async Task<IActionResult> TopRated()
+        public async Task<IActionResult> TopList()
         {
             var list = await _context.Movies.ToListAsync();
             var r = new Random();
@@ -194,6 +194,17 @@ namespace MoviesWebApplication.Controllers
         {
             return View();
         }
+
+        public async Task<IActionResult> Popular()
+        {
+            return View();
+        }
+
+        public async Task<IActionResult> Statistics()
+        {
+            return View();
+        }
+
 
     }
 }

@@ -29,9 +29,26 @@
             height: 350px;
         }
 
-        .text {
+        .font {
             font-size: 17px;
         }
+        .box {
+            position: relative;
+            display: inline-block; /* Make the width of box same as image */
+        }
+
+            .box .text {
+                position: absolute;
+                z-index: 999;
+                margin: 0 auto;
+                left: 0;
+                right: 0;
+                top: 45%; /* Adjust this value to move the positioned div up and down */
+                text-align: center;
+                width: 60%; /* Set the width of the positioned div */
+                color: white;
+                font-size: 25px;
+            }
     </style>
     <script type="text/javascript" src="~/js/jquery-1.10.2.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
     <script type="text/javascript" src="~/scripts/jquery.js"></script>
@@ -50,7 +67,7 @@
                     <div class="col-md-7">
                         <h4>@Model.Name</h4>
                         <br />
-                        <p class="text" id="about"></p>
+                        <p class="font" id="about"></p>
                         <h6 id="category">Category : </h6>
                     </div>
                     <div class="col-md-5">
@@ -65,7 +82,8 @@
                         <h6 id="country">Country: </h6>
                         <h6 id="language">Language: </h6>
                         <h6 style="display:inline;" id="rating">Rating: </h6>
-                        <h6 style="display:inline;" id="votes"> (</h6><h6 style="display:inline;"> votes)</h6>
+                        <h6 style="display:inline;" id="votes"> (</h6><h6 id="votes2" style="display:inline;"> votes)</h6>
+                        <br/>
                         @if (Model.Votes > 0)
                         {
                             <div class="row">
@@ -110,29 +128,103 @@ $(document).ready(function () {
         var year_data = data.Year;
         var rating_data = data.imdbRating;
         var votes_data = data.imdbVotes;
+        var noData = "data unavailable";
 
-
-        console.log(about_data);
+        console.log(@Model.Id);
+        var title = data.Title;
         var article_data = '';
         if (data.Poster == "N/A" || data.Poster == null) {
-            article_data += '<img src="/Images/possible_logo.png" alt=" ' + data.Title + ' "  id="' + data.Title + '" class="errorPosters" />';
+            article_data += '<div class="box"><img src="/Images/black.jpg" alt=" ' + data.Title + ' "  id="' + data.Title + '" class="posters" /><div alt=" ' + data.Title + ' "  id="' + data.Title + '" class="text"><h6>' + title + '</h6></div></div>';
         } else {
             article_data += '<img src=" ' + data.Poster + ' " alt=" ' + data.Title + ' "  id="' + data.Title + '" class="posters"/>';
         }
+        if (data.Plot == "N/A" || data.Plot == null) {
+            about_data = "";
+            $('#about').append(about_data);
+        } else {
+            $('#about').append(about_data);
+        }
+        if (data.Genre == "N/A" || data.Genre == null) {
+            category_data = noData;
+            $('#category').append(category_data);
+            
+        } else {
+            $('#category').append(category_data);
+        }
+
+        if (data.imdbVotes == "N/A" || data.imdbVotes == null) {
+            $('#votes2').hide();
+            $('#votes').hide();
+        } else {
+            $('#votes').append(votes_data);
+        }
+
+        if (data.imdbRating == "N/A" || data.imdbRating == null) {
+            rating_data = noData;
+            $('#rating').append(rating_data);
+        } else {
+          
+            $('#rating').append(rating_data);
+        }
+
+        if (data.Actors == "N/A" || data.Actors == null) {
+            actors_data = noData;
+            $('#actors').append(actors_data);
+        } else {
+            $('#actors').append(actors_data);
+        }
+
+        if (data.Director == "N/A" || data.Actors == null) {
+            director_data = noData;
+            $('#director').append(director_data);
+        } else {
+            $('#director').append(director_data);
+        }
+
+        if (data.Released == "N/A" || data.Released == null) {
+            release_data = noData;
+            $('#release').append(release_data);
+        } else {
+            $('#release').append(release_data);
+        }
+
+
+        if (data.Writer == "N/A" || data.Writer == null) {
+            writer_data = noData;
+            $('#writer').append(writer_data);
+        } else {
+            $('#writer').append(writer_data);
+        }
+
+        if (data.Runtime == "N/A" || data.Runtime == null) {
+            runtime_data = noData;
+            $('#runtime').append(runtime_data); 
+        } else {
+            $('#runtime').append(runtime_data); 
+        }
+
+        if (data.Country == "N/A" || data.Country == null) {
+            country_data = noData;
+            $('#country').append(country_data);
+        } else {
+            $('#country').append(country_data);
+        }
+
+        if (data.Language == "N/A" || data.Language == null) {
+            language_data = noData;
+            $('#language').append(language_data);
+        } else {
+            $('#language').append(language_data);
+        }
+
+        if (data.Year == "N/A" || data.Year == null) {
+            year_data = noData;
+            $('#year').append(year_data);
+        } else {
+            $('#year').append(year_data);
+        }
 
         $('#article_table').append(article_data);
-        $('#about').append(about_data);
-        $('#director').append(director_data);
-        $('#runtime').append(runtime_data);
-        $('#release').append(release_data);
-        $('#category').append(category_data);
-        $('#actors').append(actors_data);
-        $('#writer').append(writer_data);
-        $('#country').append(country_data);
-        $('#language').append(language_data);
-        $('#year').append(year_data);
-        $('#rating').append(rating_data);
-        $('#votes').append(votes_data);
 
     });
 });
