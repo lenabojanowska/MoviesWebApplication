@@ -167,8 +167,8 @@ $(document).ready(function () {
         var language_data = data.Language;
         var country_data = data.Country;
         var year_data = data.Year;
-        var rating_data = data.imdbRating;
-        var votes_data = data.imdbVotes;
+        var rating_data = @Model.Rating;
+        var votes_data = @Model.Votes;
         var noData = "data unavailable";
 
         console.log(@Model.Id);
@@ -193,14 +193,14 @@ $(document).ready(function () {
             $('#category').append(category_data);
         }
 
-        if (data.imdbVotes == "N/A" || data.imdbVotes == null) {
+        if (votes_data == 0) {
             $('#votes2').hide();
             $('#votes').hide();
         } else {
             $('#votes').append(votes_data);
         }
 
-        if (data.imdbRating == "N/A" || data.imdbRating == null) {
+        if (rating_data == 0) {
             rating_data = noData;
             $('#rating').append(rating_data);
         } else {
