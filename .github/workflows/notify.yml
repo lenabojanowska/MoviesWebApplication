@@ -13,3 +13,9 @@ jobs:
       env:
         API_KEY: db55cdfe-e071-4f51-a6e0-b9500a15749e
         MESSAGE: "There is a new commit!"
+        
+    - name: Send Push Notification To Lena
+      uses: techulus/push-github-action@1.0.0
+      env:
+        API_KEY: 2dfa41aa-b152-4c21-ac00-e21d448426dd
+        MESSAGE: "There is a new commit!"
