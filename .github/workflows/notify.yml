@@ -1,0 +1,15 @@
+name: Push notification on commit
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Send Push Notification To Karla
+      uses: techulus/push-github-action@1.0.0
+      env:
+        API_KEY: db55cdfe-e071-4f51-a6e0-b9500a15749e
+        MESSAGE: "There is a new commit!"
