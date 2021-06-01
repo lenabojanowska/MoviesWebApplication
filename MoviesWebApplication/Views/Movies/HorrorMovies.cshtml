@@ -37,7 +37,7 @@
 
 </head>
 <body>
-    <h1>Horror Movies</h1>
+    <h1>Thriller Movies</h1>
     <input type="text" id="myInput" name="search" placeholder="Search for movies..">
     <div id="article_table"></div>
 
@@ -47,12 +47,15 @@
 <script>
     $("#myInput").keyup(function () {
         var val = $.trim(this.value);
-        if (val === "")
+        if (val === "") {
+            $('.text').show();
             $('img').show();
-        else {
+        } else {
             $('img').hide();
+            $('.text').hide();
             val = val.split(" ").join("\\ ");
             $("img[alt*=" + val + " i]").show();
+            $(".text[alt*=" + val + " i]").show();
         }
     });
 </script>
@@ -69,12 +72,13 @@
                             //a0b6e7bc
                             //74e33cd2
                             console.log(data.Title);
-                            if (data.Genre == "Horror") {
+                            var string = data.Genre;
+                            if (string.includes("Thriller")) {
 
 
                             var article_data = '';
                             if (data.Poster == "N/A" || data.Poster == null) {
-                                article_data += '<img src="/Images/possible_logo.png" alt=" ' + data.Title + ' "  id="' + data.Title + '" class="errorPosters" />';
+                                article_data += '<div class="box"><img src="/Images/black.jpg" alt=" ' + data.Title + ' "  id="' + data.Title + '" class="posters" /><div alt=" ' + data.Title + ' "  id="' + data.Title + '" class="text"><h6>' + title + '</h6></div></div>';
                             } else {
                                 article_data += '<img src=" ' + data.Poster + ' " alt=" ' + data.Title + ' "  id="' + data.Title + '" class="posters"/>';
                             }

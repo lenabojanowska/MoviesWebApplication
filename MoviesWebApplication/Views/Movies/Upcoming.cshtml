@@ -1,5 +1,91 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
+﻿@{
+    ViewData["Title"] = "Upcoming";
 }
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+
+    <style>
+        .posters {
+            width: 180px;
+            height: 250px;
+            margin: 20px;
+        }
+
+        #posters {
+            width: 100px;
+            height: 150px;
+        }
+
+        table tr {
+            border: solid 1px;
+            border-color: lightgrey;
+        }
+    </style>
+
+    <script type="text/javascript" src="~/js/jquery-1.10.2.min.js" integrity="" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="~/scripts/jquery.js"></script>
+
+
+</head>
+<body>
+    <h2>Upcoming</h2>
+    <br />
+    <h3 id="min" style="display:inline;"></h3><h3 id="max"  style="display:inline;"> - </h3>
+    <br /><br /><br />
+    <div id="cardContainer">
+    </div>
+
+</body>
+</html>
+
+<script>
+
+                    $(document).ready(function () {
+                        $.getJSON('https://api.themoviedb.org/3/movie/upcoming?api_key=fdde54599d906f755b9911ea4553bd7d&language=en-US&page=1', function (data) {
+
+                            //console.log(data.results['0'].original_title);
+
+                            var contentString = [];
+                            for (var i = 0; i < data.results.length; i++) {
+
+                                console.log(data.results[i].poster_path);
+                                var links = "https://image.tmdb.org/t/p/w185" + data.results[i].poster_path;
+                                var overview_data = data.results[i].overview;
+                                var released_data = data.results[i].release_date;
+                            
+                                contentString[i] = '<table>' +
+                                    '<tbody>' +
+                                    '<tr>' +
+                                    '<th style="width: 180px;">' +
+                                    '<img class ="posters"  src=' + links + ' />' +
+                                    '</th>' +
+                                    '<th style="width: 320px; white-space:pre-wrap; word-wrap:break-word" id="text">' +
+                                   
+                                    data.results[i].title +                                  
+                                    '</th>' +
+                                    '<th style="width: 530px; white-space:pre-wrap; word-wrap:break-word">' +
+                                    overview_data + '\n' + '<br/>' +    
+                                   
+                                    'Released: ' + released_data + '\n' + '<br/>' +   
+                                '<img style="width: 18px; height: 20px;" src="/Images/Star.png" />' + ' ' + data.results[i].vote_average + ' (' + data.results[i].vote_count + ' votes)' + 
+                                    '</th>' +
+                                    '</tr>' +
+                                    '</tbody>' +
+                                    '</table></br>'         
+
+                                $('#cardContainer').append(contentString[i]);
+                                
+
+                            }
+                            var min_data = data.dates.minimum;
+                            var max_data = data.dates.maximum;
+
+                            $('#min').append(min_data);
+                            $('#max').append(max_data);
+
+                        });
+                    });
+    //https://image.tmdb.org/t/p/w185/
+</script>

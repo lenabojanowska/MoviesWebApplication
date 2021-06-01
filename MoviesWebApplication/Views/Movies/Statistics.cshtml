@@ -3,4 +3,88 @@
     ViewData["Title"] = "Statistics";
 }
 
-<div id="tekst">Wybierz datę dla której chcesz zobaczyć wykres: <input type="text" id="fromDate" class="datepicker" /><button>Generuj wykresy</button></div>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <style>
+        #selectElementId{
+            width:100px;
+            height:30px;
+        }
+    </style>
+
+    <script type="text/javascript" src="~/js/jquery-1.10.2.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="~/scripts/jquery.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+
+</head>
+<body>
+    <h1>Statistics</h1>
+
+    <div style="font-size:20px;">Choose a year to see rating of movies:   <select style="display:inline;" id="selectElementId"></select><p style="display:inline;">   </p><button class="btn btn-warning" style="display:inline; height:30px; width:200px; text-align:center; " >Generate chart</button></div>
+    <canvas id="myChart"></canvas>
+    
+</body>
+</html>
+
+<script>
+    var min = 2012,
+        max = 2021,
+        select = document.getElementById('selectElementId');
+
+    for (var i = min; i <= max; i++) {
+        var opt = document.createElement('option');
+        opt.value = i;
+        opt.innerHTML = i;
+        select.appendChild(opt);
+    }
+
+    select.value = new Date().getFullYear();
+    </script>
+<script>
+
+    $(document).ready(function () {
+        $("button").click(function () {
+            var str = document.getElementById("selectElementId").value;
+            $.get("https://api.themoviedb.org/3/discover/movie?api_key=fdde54599d906f755b9911ea4553bd7d&language=en-US&primary_release_year=" + str , function (data) {
+                console.log(str);
+                for (var i = 0; i < data.results.length; i++) {
+                    var labels = data.results.map(function (e) {
+                        return e.title;
+                    });
+                    var data = data.results.map(function (e) {
+                        return e.vote_average;
+                    });
+
+                    var ctx = document.getElementById('myChart').getContext('2d');
+
+                    var chart = new Chart(ctx, {
+                        type: 'bar',
+                        data: {
+                            labels: labels,
+                            datasets: [{
+                                label: 'Ratings',
+                                backgroundColor: 'rgb(0, 153, 153)',
+                                borderColor: 'rgb(0, 153, 153)',
+                                data: data,
+                                fill: false
+
+
+                            }]
+                        },
+                        options: {
+
+                            title: {
+                                display: true,
+                                text: 'Rating of the movies by the year'
+
+                            }
+                        },
+                    });
+                }
+            });
+        });
+    });
+                
+</script>
+

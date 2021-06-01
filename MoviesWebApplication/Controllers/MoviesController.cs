@@ -54,9 +54,22 @@ namespace MoviesWebApplication.Controllers
         }
 
         [Authorize]
-        public async Task<IActionResult> TopRated()
+        public async Task<IActionResult> TopList()
         {
-            return View();
+            var list = await _context.Movies.ToListAsync();
+            var r = new Random();
+            var l = new List<MovieDBO>();
+            if (list.Count() > 0)
+            {
+                int i = 0;
+                while (i <= 9)
+                {
+                    l.Add(list.ElementAt(r.Next(0, list.Count())));
+                    i++;
+                }
+            }
+
+            return View(l);
         }
 
         [Authorize]
@@ -200,6 +213,26 @@ namespace MoviesWebApplication.Controllers
 
             return View(model);
         }
+
+        public async Task<IActionResult> Upcoming()
+        {
+            return View();
+        }
+        public async Task<IActionResult> TopRatedAPI()
+        {
+            return View();
+        }
+
+        public async Task<IActionResult> Popular()
+        {
+            return View();
+        }
+
+        public async Task<IActionResult> Statistics()
+        {
+            return View();
+        }
+
 
     }
 }

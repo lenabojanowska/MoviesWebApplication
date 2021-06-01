@@ -8,24 +8,17 @@
 
     <style>
         .posters {
-            width: 200px;
-            height: 300px;
-            margin: 35px;
-        }
-
-        .errorPosters {
-            width: 200px;
-            height: 300px;
-            margin: 35px;
-        }
-
+            width: 150px;
+            height: 200px;
+          
+        }            
         #text{
-            font-size:30px;
+            font-size:18px;
         }
         
-        #posters{
-            width: 100px;
-            height:150px;
+        table tr {
+            border: solid 1px;
+            border-color: lightgrey;
         }
     </style>
 
@@ -35,7 +28,8 @@
 
 </head>
 <body>
-    <h1>Top Rated</h1>
+    <h2>Top Rated</h2>
+    <br />
     <div id="cardContainer">
        </div>
 
@@ -58,11 +52,17 @@
                                 contentString[i] = '<table>' +
                                     '<tbody>' +
                                     '<tr>' +
-                                    '<th>' +
-                                    '<img id ="posters" src=' + links +' />' +
+                                    '<th style="width: 100px; text-align:center; font-size: 22px">' +
+                                    (i+1) +
                                     '</th>' +
-                                    '<th id="text">' +
+                                    '<th style="width: 210px;">' +
+                                    '<img class ="posters"  src=' + links +' />' +
+                                    '</th>' +
+                                    '<th style="width: 590px;" id="text">' +
                                     data.results[i].title +
+                                    '</th>' +
+                                    '<th style="width: 200px;">' +
+                                    '<img style="width: 18px; height: 20px;" src="/Images/Star.png" />' + ' '  + data.results[i].vote_average +' ('+ data.results[i].vote_count + ' votes)' +
                                     '</th>' +
                                     '</tr>' +
                                     '</tbody>' +
