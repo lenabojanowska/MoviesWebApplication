@@ -1,9 +1,6 @@
 ﻿@model IEnumerable<MoviesWebApplication.Data.MovieDBO>
-
-@{
-    ViewData["Title"] = "Index";
+@{ ViewData["Title"] = "Search";
 }
-
 
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -14,8 +11,8 @@
             width: 210px;
             height: 300px;
             margin: 35px;
-           
         }
+
         .box {
             position: relative;
             display: inline-block; /* Make the width of box same as image */
@@ -32,6 +29,7 @@
                 width: 60%; /* Set the width of the positioned div */
                 color: white;
             }
+
         #searching {
             background-image: url('/Images/zoom.png');
             background-size: 20px;
@@ -42,37 +40,38 @@
             padding: 12px 20px 12px 40px;
             border: 1px solid #ddd;
             margin-bottom: 12px;
-            display:inline;
+            display: inline;
         }
+
         .left {
             position: absolute;
             top: 17px;
             left: 20px;
         }
+
         .centered {
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
         }
+
         .container {
             position: relative;
-
         }
+
         #left {
-            height:48px;           
+            height: 48px;
         }
-
     </style>
 
-    <script type="text/javascript" src="~/js/jquery-1.10.2.min.js"  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="   crossorigin="anonymous"></script>
+    <script type="text/javascript" src="~/js/jquery-1.10.2.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
     <script type="text/javascript" src="~/scripts/jquery.js"></script>
-   
-    
+
+
 </head>
 <body>
-    <h1>All Movies</h1>
-    @* <input type="text" id="myInput" name="search" placeholder="Search for movies..">*@
+    @*//<input type="text" id="myInput" name="search" placeholder="Search for movies..">*@
 
     @using (Html.BeginForm("Search", "", FormMethod.Get))
     {
@@ -88,26 +87,24 @@
         if (val === "") {
             $('.text').show();
             $('img').show();
-        }else {
+        } else {
             $('img').hide();
-           $('.text').hide();
+            $('.text').hide();
             val = val.split(" ").join("\\ ");
             $("img[alt*=" + val + " i]").show();
             $(".text[alt*=" + val + " i]").show();
         }
     });*@
 
-    $(document).ready(function () {
-        $("#searching").val('');
-    });
+  
 </script>
- @if (Model.Count() > 0)
-    {
-        <div class="wrapper row">
-            @foreach (var movie in Model)
-            {
-                <div class="item m-4">
-                    <script>
+@if (Model.Count() > 0)
+{
+    <div class="wrapper row">
+        @foreach (var movie in Model)
+        {
+            <div class="item m-4">
+                <script>
 
                     $(document).ready(function () {
                         $.getJSON('https://www.omdbapi.com/?apikey=' + '4713f8' + '&i=tt' + @movie.Id , function (data) {
@@ -115,7 +112,7 @@
                             //74e33cd2
                             //f8b2e37a
                             console.log(data.Title);
-                           
+
 
                             var title = data.Title;
                             var article_data = '';
@@ -139,16 +136,17 @@
 
 
                             $('#article_table').append(article_data);
-                      
+
                         });
                     });
-                    </script>
+                </script>
 
-                </div>
-            }
-        </div>
-    }
-    else
-    {
-        <h4>No Movies Available Right Now</h4>
-    }
+            </div>
+        }
+    </div>
+}
+else
+{
+    <h4>No Movies Available Right Now</h4>
+}
+

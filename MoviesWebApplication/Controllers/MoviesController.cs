@@ -23,7 +23,12 @@ namespace MoviesWebApplication.Controllers
             _logger = logger;
             _context = moviesContext;
         }
-
+      
+        public ActionResult Search(string searching)
+        {
+            return View(_context.Movies.Where(x => x.Title.Contains(searching) || searching == null).ToList());
+        }
+        [HttpGet]
         public async Task<IActionResult> IndexAsync()
         {
             var list = await _context.Movies.ToListAsync();
@@ -32,15 +37,16 @@ namespace MoviesWebApplication.Controllers
             if (list.Count() > 0)
             {
                 int i = 0;
-                while (i <= 39)
+                while (i <= 11)
                 {
                     l.Add(list.ElementAt(r.Next(0, list.Count())));
                     i++;
                 }
             }
-            
+
             return View(l);
         }
+
 
         public IActionResult Privacy()
         {
