@@ -1,9 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using MoviesWebApplication.Data.DBO;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace MoviesWebApplication.Data
 {
@@ -15,10 +11,12 @@ namespace MoviesWebApplication.Data
         }
 
         public DbSet<ToplistDBO> Toplists { get; set; }
+        public DbSet<ToplistMoviesDBO> ToplistMovies { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<ToplistDBO>().ToTable("toplists");
+            modelBuilder.Entity<ToplistMoviesDBO>().ToTable("movies");
         }
     }
 }

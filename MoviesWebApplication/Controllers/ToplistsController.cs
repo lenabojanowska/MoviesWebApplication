@@ -8,16 +8,19 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using MoviesWebApplication.Data;
 using MoviesWebApplication.Data.DBO;
+using MoviesWebApplication.Models;
 
 namespace MoviesWebApplication.Controllers
 {
     public class ToplistsController : Controller
     {
         private readonly UsersContext _context;
+        private readonly MoviesContext _mcontext;
 
-        public ToplistsController(UsersContext context)
+        public ToplistsController(UsersContext context, MoviesContext moviesContext)
         {
             _context = context;
+            _mcontext = moviesContext;
         }
 
         [Authorize]
@@ -35,15 +38,28 @@ namespace MoviesWebApplication.Controllers
             {
                 return NotFound();
             }
+            var result = new ToplistModel{};
 
-            var toplistDBO = await _context.Toplists
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var toplistDBO = await _context.Toplists.FirstOrDefaultAsync(m => m.Id == id);
             if (toplistDBO == null)
             {
                 return NotFound();
             }
+            else
+            {
+                result.Id = toplistDBO.Id;
+                result.Name = toplistDBO.Name;
+                result.IsPublic = toplistDBO.IsPublic;
+                var l = _context.ToplistMovies.Where(p => p.ToplistId == toplistDBO.Id);
+                foreach (var el in l)
+                {
+                    var m = await _mcontext.Movies.FirstOrDefaultAsync(p => p.Id == el.MovieId);
+                    if (m != null)
+                        result.Movies.Add(m);
+                }
+            }
 
-            return View(toplistDBO);
+            return View(result);
         }
 
         // GET: Toplists/Create
@@ -135,11 +151,10 @@ namespace MoviesWebApplication.Controllers
             }
             else
             {
-                var movie = toplistDBO.Movies.FirstOrDefault(p => p.Id == movieId);
+                var movie = _context.ToplistMovies.FirstOrDefault(p => p.MovieId == movieId);
                 if (movie != null)
                 {
-                    toplistDBO.Movies.Remove(movie);
-                    _context.Update(toplistDBO);
+                    _context.Remove(movie);
                     await _context.SaveChangesAsync();
                 }
             }
