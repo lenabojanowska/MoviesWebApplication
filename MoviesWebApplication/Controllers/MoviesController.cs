@@ -239,6 +239,10 @@ namespace MoviesWebApplication.Controllers
             return View();
         }
 
+        public async Task<IActionResult> MovieDetails()
+        {
+            return View();
+        }
 
     }
 }

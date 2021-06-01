@@ -39,6 +39,47 @@
                 color: white;
                 font-size: 25px;
             }
+        .dropbtn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 16px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+            .dropdown-content a {
+                color: black;
+                padding: 12px 16px;
+                text-decoration: none;
+                display: block;
+            }
+
+                .dropdown-content a:hover {
+                    background-color: #f1f1f1
+                }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown:hover .dropbtn {
+            background-color: #3e8e41;
+        }
     </style>
     <script type="text/javascript" src="~/js/jquery-1.10.2.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
     <script type="text/javascript" src="~/scripts/jquery.js"></script>
@@ -59,7 +100,7 @@
                         <br />
                         <h6 style="display:inline;" id="rating">Rating: </h6>
                         <h6 style="display:inline;" id="votes"> (</h6><h6 id="votes2" style="display:inline;"> votes)</h6>
-                        <br />
+
                         @if (Model.Votes > 0)
                         {
                             <div class="row" style="align-self:center">
@@ -77,6 +118,13 @@
                         }
                         <p class="font" id="about"></p>
                         <h6 id="category">Category : </h6>
+                        <br />
+                        <div class="dropdown">
+                            <button class="btn btn-dark">Add to Top List</button>
+                            <div class="dropdown-content">
+                                
+                            </div>
+                        </div>
                     </div>
                     
                     <div class="col-md-6">
@@ -222,4 +270,13 @@ $(document).ready(function () {
 
     });
 });
+
+    function myFunction() {
+        var x = document.getElementById("myDIV");
+        if (x.style.display != "none") {
+            x.style.display = "block";
+        } else {
+            x.style.display = "none";
+        }
+    }
 </script>

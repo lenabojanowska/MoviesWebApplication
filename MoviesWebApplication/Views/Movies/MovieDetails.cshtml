@@ -4,13 +4,11 @@
 @model MoviesWebApplication.Data.MovieDBO
 
 
-@{
-    ViewData["Title"] = "Details";
-}
+
 
 <h1>Movie Details</h1>
 <br />
-<h3>@Model.Title</h3>
+
 <div class="text-white container">
 
     <hr />
@@ -62,6 +60,6 @@
     </dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+ @*   //<a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |*@
     <a asp-action="Index">Back to List</a>
 </div>
