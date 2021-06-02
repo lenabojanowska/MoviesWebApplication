@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MoviesWebApplication.Data.DBO;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -37,5 +38,6 @@ namespace MoviesWebApplication.Models
 
         public string Category { get; set; }
         public enum ECategory { Action = 0, Adventure = 1, Horror = 2, Drama = 3, Romance = 4, Comedy = 5 }
+        public List<ToplistMovieModel> Toplists { get; set; }
     }
 }

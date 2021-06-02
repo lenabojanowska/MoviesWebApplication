@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
@@ -17,11 +18,13 @@ namespace MoviesWebApplication.Controllers
     {
         private readonly ILogger<MoviesController> _logger;
         private readonly MoviesContext _context;
+        private readonly UsersContext _usersContext;
 
-        public MoviesController(ILogger<MoviesController> logger, MoviesContext moviesContext)
+        public MoviesController(ILogger<MoviesController> logger, MoviesContext moviesContext, UsersContext userContext)
         {
             _logger = logger;
             _context = moviesContext;
+            _usersContext = userContext;
         }
       
         public ActionResult Search(string searching)
@@ -78,7 +81,6 @@ namespace MoviesWebApplication.Controllers
             return View(l);
         }
 
-        [Authorize]
         public async Task<IActionResult> ActionMoviesAsync()
         {
             var list = await _context.Movies.ToListAsync();
@@ -214,11 +216,41 @@ namespace MoviesWebApplication.Controllers
                 Id = movieDBO.Id,
                 Name = movieDBO.Title,
                 Rating = (int)rating.Rating,
-                Votes = rating.Votes
+                Votes = rating.Votes,
+                Toplists = new List<ToplistMovieModel>()
             };
+
+            if (User.Identity.IsAuthenticated && movieDBO != null)
+            {
+                var toplists = await _usersContext.Toplists.Where(p => p.Email == User.Identity.Name).ToListAsync();
+                foreach (var t in toplists)
+                {
+                    var tm = new ToplistMovieModel
+                    {
+                        IsSelected = false,
+                        ToplistName = t.Name
+                    };
+                    model.Toplists.Add(tm);
+                }
+            }
 
             return View(model);
         }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Details(IFormCollection form)
+        {
+            var movieID = int.Parse(form["MovieId"]);
+
+            //foreach()
+
+            //var existing = _usersContext.ToplistMovies.Where(p=>p.MovieId==movieID).FirstOrDefault(p=>p.ToplistId)
+           
+            //_context.SaveChanges();
+            return View();
+        }
+
 
         public async Task<IActionResult> Upcoming()
         {
@@ -231,7 +263,22 @@ namespace MoviesWebApplication.Controllers
 
         public async Task<IActionResult> Popular()
         {
-            return View();
+            var l = new List<MoviesModel>();
+            var ratings = await _context.Ratings.Where(p => p.Rating > 8).OrderByDescending(p => p.Rating).ToListAsync();
+            for(int i=0;i<10;i++)
+            {
+                var movie = await _context.Movies.FirstOrDefaultAsync(p => p.Id == ratings[i].MovieId);
+                MoviesModel model = new MoviesModel
+                {
+                    Id = movie.Id,
+                    Name = movie.Title,
+                    Rating = (int)ratings[i].Rating,
+                    Votes = ratings[i].Votes,
+                };
+                l.Add(model);
+            }
+
+            return View(l);
         }
 
         public async Task<IActionResult> Statistics()

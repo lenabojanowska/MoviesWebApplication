@@ -118,11 +118,50 @@
                         }
                         <p class="font" id="about"></p>
                         <h6 id="category">Category : </h6>
-                        <br />
-                        <div class="dropdown">
-                            <button class="btn btn-dark">Add to Top List</button>
-                            <div class="dropdown-content">
-                                
+                        <br />  
+                        <div>
+                            <button id="btnShowModal" type="button" class="btn btn-dark">Add to Top List</button>
+                            <div class="modal fade" tabindex="-1" id="chooseModal"
+                                 data-keyboard="false" data-backdrop="static">
+                                <div class="modal-dialog modal-lg">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h4 class="modal-title">Choose Toplists:</h4>
+                                            <button type="button" class="close" data-dismiss="modal">
+                                                ×
+                                            </button>
+                                        </div>
+                                        @if (Model.Toplists.Count() <= 0)
+                                        {
+                                            <div class="modal-body">
+                                                <h6>There are no Toplists. Please create some.</h6>
+                                            </div>
+                                        }
+                                        else
+                                        {
+                                            <form asp-action="Details">
+                                                <div class="modal-body">
+                                                        @foreach (var toplist in Model.Toplists)
+                                                        {
+                                                            <div class="form-group form-check">
+                                                                <label class="form-check-label">
+                                                                    <input class="form-check-input" asp-for="@toplist.IsSelected" /> @toplist.ToplistName @*@Model.Toplists.First(p => p.ToplistId == toplist.ToplistId).IsSelected*@
+                                                                </label>
+                                                                <input type="hidden" name="@toplist.ToplistName" value="@toplist.IsSelected" />
+                                                            </div>
+                                                        }
+                                                        <input type="hidden" name="MovieId" value="@Model.Id" />
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <div class="form-group">
+                                                        <button type="submit" class="btn btn-dark">Save</button>
+                                                        <button type="button" id="btnHideModal" class="btn btn-dark"> Cancel </button>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        }
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -270,6 +309,16 @@ $(document).ready(function () {
 
     });
 });
+
+    $(document).ready(function () {
+        $("#btnShowModal").click(function () {
+            $("#chooseModal").modal('show');
+        });
+
+        $("#btnHideModal").click(function () {
+            $("#chooseModal").modal('hide');
+        });
+    });
 
     function myFunction() {
         var x = document.getElementById("myDIV");
