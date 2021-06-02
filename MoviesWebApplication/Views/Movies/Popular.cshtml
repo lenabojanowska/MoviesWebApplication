@@ -38,14 +38,15 @@
             @{ int count = 0;}
             for (var i = 0; i < @Model.Count(); i++) {
                 $.getJSON('https://www.omdbapi.com/?apikey=' + 'f8b2e37a' + '&i=tt' + @Model.ElementAt(count).Id , function (data) {
-                    contentString[i] = '<table>' +
+                    console.log(@Model.ElementAt(count).Id);
+              contentString[i] = '<table>' +
                         '<tbody>' +
                         '<tr>' +
                         '<th style="width: 100px; text-align:center; font-size: 22px">' +
                         (i + 1) +
                         '</th>' +
                         '<th style="width: 210px;">' +
-                        '<img class ="posters"  src=' + '<img src=" ' + data.Poster + ' " alt=" ' + data.Title + ' "  id="' + data.Title + ' />' +
+                        '<img src=' + data.Poster + ' class="posters" />' +
                         '</th>' +
                         '<th style="width: 590px;" id="text">' +
                         data.Title +
@@ -56,9 +57,10 @@
                         '</tr>' +
                         '</tbody>' +
                         '</table></br>';
-                });
-            @{count++;};
+                    ;
             $('#cardContainer').append(contentString[i]);
+                });
+                 @{count++;}
             };
         });
 </script>
