@@ -10,6 +10,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Net.Http;
 using System.Threading.Tasks;
 
 namespace MoviesWebApplication.Controllers
@@ -279,8 +280,9 @@ namespace MoviesWebApplication.Controllers
         public async Task<IActionResult> Popular()
         {
             var l = new List<MoviesModel>();
-            var ratings = await _context.Ratings.Where(p => p.Rating > 6).OrderBy(p => p.Rating).ToListAsync();
-            for(int i=0;i<9;i++)
+
+            var ratings = await _context.Ratings.Where(p => p.Rating > 9).OrderByDescending(p => p.Rating).ToListAsync();
+            for (int i = 0; i < 10; i++)
             {
                 var movie = await _context.Movies.FirstOrDefaultAsync(p => p.Id == ratings[i].MovieId);
                 MoviesModel model = new MoviesModel
@@ -292,7 +294,7 @@ namespace MoviesWebApplication.Controllers
                 };
                 l.Add(model);
             }
-
+        
             return View(l);
         }
 
