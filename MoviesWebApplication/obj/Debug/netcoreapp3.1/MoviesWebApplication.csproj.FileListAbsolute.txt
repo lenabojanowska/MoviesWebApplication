@@ -431,3 +431,4 @@ C:\Users\karla\source\repos\lenabojanowska\MoviesWebApplication\MoviesWebApplica
 C:\Users\karla\source\repos\lenabojanowska\MoviesWebApplication\MoviesWebApplication\obj\Debug\netcoreapp3.1\MoviesWebApplication.genruntimeconfig.cache
 C:\Users\karla\source\repos\lenabojanowska\MoviesWebApplication\MoviesWebApplication\obj\Debug\netcoreapp3.1\MoviesWebApplication.csprojAssemblyReference.cache
 C:\Users\karla\source\repos\lenabojanowska\MoviesWebApplication\MoviesWebApplication\obj\Debug\netcoreapp3.1\Razor\Views\Shared\ModalPopUp.cshtml.g.cs
+C:\Users\PC\source\repos\MoviesWebApplication\MoviesWebApplication\obj\Debug\netcoreapp3.1\Razor\Views\Shared\ModalPopUp.cshtml.g.cs
