@@ -176,6 +176,7 @@
                         <h6 id="release">Release: </h6>
                         <h6 id="country">Country: </h6>
                         <h6 id="language">Language: </h6>
+                        <h6 id="toplist">Top List number: </h6>
                         <div style="align-content:center">
                             <partial name="_RatePartial" />
                         </div>
@@ -227,7 +228,7 @@ $(document).ready(function () {
         if (data.Genre == "N/A" || data.Genre == null) {
             category_data = noData;
             $('#category').append(category_data);
-            
+
         } else {
             $('#category').append(category_data);
         }
@@ -243,7 +244,7 @@ $(document).ready(function () {
             rating_data = noData;
             $('#rating').append(rating_data);
         } else {
-          
+
             $('#rating').append(rating_data);
         }
 
@@ -278,9 +279,9 @@ $(document).ready(function () {
 
         if (data.Runtime == "N/A" || data.Runtime == null) {
             runtime_data = noData;
-            $('#runtime').append(runtime_data); 
+            $('#runtime').append(runtime_data);
         } else {
-            $('#runtime').append(runtime_data); 
+            $('#runtime').append(runtime_data);
         }
 
         if (data.Country == "N/A" || data.Country == null) {
@@ -328,4 +329,20 @@ $(document).ready(function () {
             x.style.display = "none";
         }
     }
+
+
+    $(document).ready(function () {
+        $.getJSON('https://toplistnumbers20211.azurewebsites.net/api/bmiLela/' + 13286346 , function (data) {
+            console.log(@Model.Id);
+
+            if (toplist_data == "N/A" || toplist_data == null) {
+                toplist_data = noData;
+                $('#toplist').append(toplist_data);
+            } else {
+                $('#toplist').append(toplist_data);
+            }
+        });
+
+    });
+
 </script>
