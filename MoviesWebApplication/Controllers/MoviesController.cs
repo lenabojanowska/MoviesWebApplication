@@ -242,13 +242,28 @@ namespace MoviesWebApplication.Controllers
         public async Task<IActionResult> Details(IFormCollection form)
         {
             var movieID = int.Parse(form["MovieId"]);
+            string movieTitle = form["MovieTitle"];
 
-            //foreach()
-
-            //var existing = _usersContext.ToplistMovies.Where(p=>p.MovieId==movieID).FirstOrDefault(p=>p.ToplistId)
-           
-            //_context.SaveChanges();
-            return View();
+            if (User.Identity.IsAuthenticated && movieID >=0)
+            {
+                var toplists = await _usersContext.Toplists.Where(p => p.Email == User.Identity.Name).ToListAsync();
+                foreach (var t in toplists)
+                {
+                    var val = bool.Parse(form[t.Name]);
+                    if (val)
+                    {
+                        var exists = _usersContext.ToplistMovies.Where(p => p.ToplistId == t.Id && p.MovieId==movieID).ToList();
+                        if (exists.Count() <= 0)
+                            _usersContext.ToplistMovies.Add(new ToplistMoviesDBO
+                            {
+                                MovieId = movieID,
+                                ToplistId = t.Id
+                            });
+                    }
+                }
+            }
+            _usersContext.SaveChanges();
+            return RedirectToAction("Details", "Movies", new { id = movieTitle });
         }
 
 

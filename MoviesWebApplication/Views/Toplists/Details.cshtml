@@ -43,8 +43,12 @@
                             @Html.DisplayFor(modelItem => item.Year)
                         </td>
                         <td>
-                            |
-                            <a asp-action="RemoveMovie" asp-route-id="@Model.Id,@item.Id">Remove</a>
+                            @using (Html.BeginForm("RemoveMovie", "Toplists", FormMethod.Post))
+                            {
+                                <input type="hidden" name="ToplistId" value="@Model.Id" />
+                                <input type="hidden" name="MovieId" value="@item.Id" />
+                                <button type="submit" class="btn btn-dark">Remove</button>
+                            }
                         </td>
                     </tr>
                 }
@@ -54,5 +58,4 @@
 </div>
 <div>
     <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
 </div>

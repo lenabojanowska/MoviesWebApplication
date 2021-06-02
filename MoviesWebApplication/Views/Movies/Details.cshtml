@@ -134,23 +134,23 @@
                                         @if (Model.Toplists.Count() <= 0)
                                         {
                                             <div class="modal-body">
-                                                <h6>There are no Toplists. Please create some.</h6>
+                                                <h6>There are no Top Lists. Please log in and create some.</h6>
                                             </div>
                                         }
                                         else
                                         {
                                             <form asp-action="Details">
                                                 <div class="modal-body">
-                                                        @foreach (var toplist in Model.Toplists)
-                                                        {
-                                                            <div class="form-group form-check">
-                                                                <label class="form-check-label">
-                                                                    <input class="form-check-input" asp-for="@toplist.IsSelected" /> @toplist.ToplistName @*@Model.Toplists.First(p => p.ToplistId == toplist.ToplistId).IsSelected*@
-                                                                </label>
-                                                                <input type="hidden" name="@toplist.ToplistName" value="@toplist.IsSelected" />
-                                                            </div>
-                                                        }
-                                                        <input type="hidden" name="MovieId" value="@Model.Id" />
+                                                    @foreach (var toplist in Model.Toplists)
+                                                    {
+                                                        <div class="form-group form-check">
+                                                            <label class="form-check-label">
+                                                                <input class="form-check-input" name="@toplist.ToplistName" asp-for="@Model.Toplists.First(p => p.ToplistId == toplist.ToplistId).IsSelected" /> @toplist.ToplistName 
+                                                            </label>
+                                                        </div>
+                                                    }
+                                                    <input type="hidden" name="MovieId" value="@Model.Id" />
+                                                    <input type="hidden" name="MovieTitle" value="@Model.Name" />
                                                 </div>
                                                 <div class="modal-footer">
                                                     <div class="form-group">

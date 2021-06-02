@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -137,9 +138,14 @@ namespace MoviesWebApplication.Controllers
             return View(toplistDBO);
         }
 
-        public async Task<IActionResult> RemoveMovie(int? id, int? movieId)
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> RemoveMovie(IFormCollection form)
         {
-            if (id == null || movieId==null)
+            var movieId = int.Parse(form["MovieId"]);
+            var id = int.Parse(form["ToplistId"]);
+
+            if (id == 0 || movieId==0)
             {
                 return NotFound();
             }
@@ -159,7 +165,7 @@ namespace MoviesWebApplication.Controllers
                 }
             }
 
-            return View(toplistDBO);
+            return RedirectToAction("Details", "Toplists", new { id = id });
         }
 
         // GET: Toplists/Delete/5
