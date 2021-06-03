@@ -81,7 +81,7 @@
             background-color: #3e8e41;
         }
     </style>
-    <script type="text/javascript" src="~/js/jquery-1.10.2.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="~/js/jquery-1.10.2.min.js" integrity="" crossorigin="anonymous"></script>
     <script type="text/javascript" src="~/scripts/jquery.js"></script>
 </head>
 <body>
@@ -190,7 +190,7 @@
 </body>
 </html>
 
-<script>
+<script integrity="">
 
 $(document).ready(function () {
     $.getJSON('https://www.omdbapi.com/?apikey=' + '4713f8' + '&i=tt' + @Model.Id , function (data) {
@@ -332,14 +332,14 @@ $(document).ready(function () {
 
 
     $(document).ready(function () {
-        $.getJSON('https://toplistnumbers20211.azurewebsites.net/api/bmiLela/' + 13286346 , function (data) {
+        $.getJSON('https://toplistnumbers20211.azurewebsites.net/api/bmiLela/' + @Model.Id , function (data) {
             console.log(@Model.Id);
 
-            if (toplist_data == "N/A" || toplist_data == null) {
+            if (data == "N/A" || data == null) {
                 toplist_data = noData;
-                $('#toplist').append(toplist_data);
+                $('#toplist').append(data);
             } else {
-                $('#toplist').append(toplist_data);
+                $('#toplist').append(data);
             }
         });
 

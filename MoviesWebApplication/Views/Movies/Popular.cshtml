@@ -64,45 +64,6 @@
                 });
         </Text>
     }
-
-
-
-
-    @*$(document).ready(function () {
-    @{ int count = 0;}
-            for (var i = 0; i < @Model.Count(); i++) {
-            @{count = count + 1;}
-            $.getJSON('https://www.omdbapi.com/?apikey=' + 'f8b2e37a' + '&i=tt' + @Model.ElementAt(count).Id , function (data) {
-                    console.log(@Model.ElementAt(count).Id);
-                    var contentString = "";
-                    contentString = '<table>' +
-                        '<tbody>' +
-                        '<tr>' +
-                        '<th style="width: 100px; text-align:center; font-size: 22px">' +
-                        (i + 1) +
-                        '</th>' +
-                        '<th style="width: 210px;">' +
-                        '<img src=' + data.Poster + ' class="posters" />' +
-                        '</th>' +
-                        '<th style="width: 590px;" id="text">' +
-                        data.Title +
-                        '</th>' +
-                        '<th style="width: 200px;">' +
-                        '<img style="width: 18px; height: 20px;" src="/Images/Star.png" />' + ' ' + @Model.ElementAt(count).Rating + ' (' + @Model.ElementAt(count).Votes + ' votes)' +
-                        '</th>' +
-                        '</tr>' +
-                        '</tbody>' +
-                        '</table></br>';
-<<<<<<< Updated upstream
-                    
-            $('#cardContainer').append(contentString[i]);
-=======
-
-                $('#cardContainer').append(contentString);
->>>>>>> Stashed changes
-                });
-        };
-    });*@
 </script>
 }
 else
