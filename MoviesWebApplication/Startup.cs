@@ -40,14 +40,6 @@ namespace MoviesWebApplication
             services.AddDbContext<UsersContext>(options =>
                options.UseSqlServer(Configuration.GetConnectionString("UsersContext")));
 
-            services.AddControllersWithViews(options =>
-            {
-                //var policy = new AuthorizationPolicyBuilder()
-                //    .RequireAuthenticatedUser()
-                //    .Build();
-                //options.Filters.Add(new AuthorizeFilter(policy));
-            });
-
             services.AddRazorPages().AddMicrosoftIdentityUI();
         }
 

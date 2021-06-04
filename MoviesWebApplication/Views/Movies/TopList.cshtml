@@ -46,11 +46,6 @@
 
                     $(document).ready(function () {
                         $.getJSON('https://www.omdbapi.com/?apikey=' + '4713f8' + '&i=tt' + @movie.Id , function (data) {
-                            //a0b6e7bc
-                            //74e33cd2
-                            //f8b2e37a
-                            console.log(data.Title);
-
                             var contentString = '';
                             var title = data.Title;
                             var article_data = '';
@@ -58,7 +53,6 @@
                                 contentString = '<table>' +
                                     '<tbody>' +
                                     '<tr>' +
-                                   
                                     '<th style="width: 210px;">' +
                                     '<img class ="posters"  src=' + links + ' />' +
                                     '</th>' +
@@ -70,15 +64,12 @@
                                     '</th>' +
                                     '</tr>' +
                                     '</tbody>' +
-                                    '</table></br>'         
-
-
+                                    '</table></br>'       
                                 article_data += '<div class="box"><img src="/Images/black.jpg" alt=" ' + data.Title + ' "  id="' + data.Title + '" class="posters" /><div alt=" ' + data.Title + ' "  id="' + data.Title +'" class="text"><h6>'+title+'</h6></div></div>';
                             } else {
                                 contentString[i] = '<table>' +
                                     '<tbody>' +
                                     '<tr>' +
-                                   
                                     '<th style="width: 210px;">' +
                                     '<img class ="posters"  src=' + links + ' />' +
                                     '</th>' +
@@ -99,14 +90,8 @@
                                 image.onclick = function (event) {
 
                                     window.location.href = 'https://localhost:44329/Movies/Details/' + this.id;
-
-
-
                                 };
                             }
-
-
-
                             $('#article_table').append(content);
 
                         });

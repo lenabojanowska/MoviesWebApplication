@@ -39,8 +39,6 @@ C:\Users\PC\source\repos\MoviesWebApplication\MoviesWebApplication\obj\Debug\net
 C:\Users\PC\source\repos\MoviesWebApplication\MoviesWebApplication\obj\Debug\netcoreapp3.1\Razor\Views\Movies\DramaMovies.cshtml.g.cs
 C:\Users\PC\source\repos\MoviesWebApplication\MoviesWebApplication\obj\Debug\netcoreapp3.1\Razor\Views\Movies\HorrorMovies.cshtml.g.cs
 C:\Users\PC\source\repos\MoviesWebApplication\MoviesWebApplication\obj\Debug\netcoreapp3.1\Razor\Views\Movies\Index.cshtml.g.cs
-C:\Users\PC\source\repos\MoviesWebApplication\MoviesWebApplication\obj\Debug\netcoreapp3.1\Razor\Views\Movies\MovieDetails.cshtml.g.cs
-C:\Users\PC\source\repos\MoviesWebApplication\MoviesWebApplication\obj\Debug\netcoreapp3.1\Razor\Views\Movies\Privacy.cshtml.g.cs
 C:\Users\PC\source\repos\MoviesWebApplication\MoviesWebApplication\obj\Debug\netcoreapp3.1\Razor\Views\Movies\RomanceMovies.cshtml.g.cs
 C:\Users\PC\source\repos\MoviesWebApplication\MoviesWebApplication\bin\Debug\netcoreapp3.1\Web.config
 C:\Users\PC\source\repos\MoviesWebApplication\MoviesWebApplication\bin\Debug\netcoreapp3.1\Azure.Core.dll
@@ -191,15 +189,7 @@ C:\Users\PC\source\repos\MoviesWebApplication\MoviesWebApplication\obj\Debug\net
 C:\Users\PC\source\repos\MoviesWebApplication\MoviesWebApplication\obj\Debug\netcoreapp3.1\Razor\Views\Login\Login.cshtml.g.cs
 C:\Users\PC\source\repos\MoviesWebApplication\MoviesWebApplication\obj\Debug\netcoreapp3.1\Razor\Views\Login\Logout.cshtml.g.cs
 C:\Users\PC\source\repos\MoviesWebApplication\MoviesWebApplication\obj\Debug\netcoreapp3.1\Razor\Views\Login\Register.cshtml.g.cs
-C:\Users\PC\source\repos\MoviesWebApplication\MoviesWebApplication\obj\Debug\netcoreapp3.1\Razor\Views\Movies\Create.cshtml.g.cs
-C:\Users\PC\source\repos\MoviesWebApplication\MoviesWebApplication\obj\Debug\netcoreapp3.1\Razor\Views\Movies\Delete.cshtml.g.cs
 C:\Users\PC\source\repos\MoviesWebApplication\MoviesWebApplication\obj\Debug\netcoreapp3.1\Razor\Views\Movies\Details.cshtml.g.cs
-C:\Users\PC\source\repos\MoviesWebApplication\MoviesWebApplication\obj\Debug\netcoreapp3.1\Razor\Views\Movies\Edit.cshtml.g.cs
-C:\Users\PC\source\repos\MoviesWebApplication\MoviesWebApplication\obj\Debug\netcoreapp3.1\Razor\Views\People\Create.cshtml.g.cs
-C:\Users\PC\source\repos\MoviesWebApplication\MoviesWebApplication\obj\Debug\netcoreapp3.1\Razor\Views\People\Delete.cshtml.g.cs
-C:\Users\PC\source\repos\MoviesWebApplication\MoviesWebApplication\obj\Debug\netcoreapp3.1\Razor\Views\People\Details.cshtml.g.cs
-C:\Users\PC\source\repos\MoviesWebApplication\MoviesWebApplication\obj\Debug\netcoreapp3.1\Razor\Views\People\Edit.cshtml.g.cs
-C:\Users\PC\source\repos\MoviesWebApplication\MoviesWebApplication\obj\Debug\netcoreapp3.1\Razor\Views\People\Index.cshtml.g.cs
 C:\Users\PC\source\repos\MoviesWebApplication\MoviesWebApplication\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_LoginPartial.cshtml.g.cs
 C:\Users\PC\source\repos\MoviesWebApplication\MoviesWebApplication\obj\Debug\netcoreapp3.1\Razor\Views\Movies\Movies.cshtml.g.cs
 C:\Users\PC\source\repos\MoviesWebApplication\MoviesWebApplication\obj\Debug\netcoreapp3.1\Razor\Views\Movies\Statistics.cshtml.g.cs
@@ -420,4 +410,3 @@ C:\Users\karla\source\repos\lenabojanowska\MoviesWebApplication\MoviesWebApplica
 C:\Users\karla\source\repos\lenabojanowska\MoviesWebApplication\MoviesWebApplication\obj\Debug\netcoreapp3.1\MoviesWebApplication.pdb
 C:\Users\karla\source\repos\lenabojanowska\MoviesWebApplication\MoviesWebApplication\obj\Debug\netcoreapp3.1\MoviesWebApplication.genruntimeconfig.cache
 C:\Users\karla\source\repos\lenabojanowska\MoviesWebApplication\MoviesWebApplication\obj\Debug\netcoreapp3.1\MoviesWebApplication.csprojAssemblyReference.cache
-C:\Users\PC\source\repos\MoviesWebApplication\MoviesWebApplication\obj\Debug\netcoreapp3.1\Razor\Views\Shared\ModalPopUp.cshtml.g.cs

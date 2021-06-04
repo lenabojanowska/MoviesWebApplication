@@ -1,20 +1,15 @@
 ﻿@model IEnumerable<MoviesWebApplication.Data.MovieDBO>
-
 @{
     ViewData["Title"] = "Index";
 }
-
-
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-
     <style>
         .posters {
             width: 210px;
             height: 300px;
-            margin: 35px;
-           
+            margin: 35px;           
         }
         .box {
             position: relative;
@@ -129,9 +124,8 @@
                                 var image = images[i];
                                 image.onclick = function (event) {
 
-                                   // window.location.href = 'https://bestmoviesinclela.azurewebsites.net/Movies/Details/' + this.id;
-                                    window.location.href = 'https://localhost:44329/Movies/Details/' + this.id;
-
+                                    window.location.href = 'https://bestmoviesinclela.azurewebsites.net/Movies/Details/' + this.id;
+                                  //window.location.href = 'https://localhost:44329/Movies/Details/' + this.id;
 
 
                                 };

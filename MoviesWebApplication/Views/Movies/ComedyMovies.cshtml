@@ -69,9 +69,6 @@
 
                     $(document).ready(function () {
                         $.getJSON('https://www.omdbapi.com/?apikey=' + '4713f8' + '&i=tt' + @movie.Id , function (data) {
-                            //a0b6e7bc
-                            //74e33cd2
-                            console.log(data.Title);
                             var string = data.Genre;
                             if (string.includes("Comedy")) {
 
@@ -87,23 +84,19 @@
                                 var image = images[i];
                                 image.onclick = function (event) {
 
-                                    window.location.href = 'https://localhost:44329/Movies/Details/' + this.id;
 
-
+                                    window.location.href = 'https://bestmoviesinclela.azurewebsites.net/Movies/Details/' + this.id;
+                                  //window.location.href = 'https://localhost:44329/Movies/Details/' + this.id;
 
                                 };
                             }
-
-
-
                             $('#article_table').append(article_data);
                         }
                         });
                     });
                 </script>
-
             </div>
-        }
+         }
     </div>
 }
 else
