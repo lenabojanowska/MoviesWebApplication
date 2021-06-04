@@ -250,16 +250,19 @@ namespace MoviesWebApplication.Controllers
                 var toplists = await _usersContext.Toplists.Where(p => p.Email == User.Identity.Name).ToListAsync();
                 foreach (var t in toplists)
                 {
-                    var val = bool.Parse(form[t.Name]);
-                    if (val)
+                    if (form.ContainsKey(t.Name))
                     {
-                        var exists = _usersContext.ToplistMovies.Where(p => p.ToplistId == t.Id && p.MovieId==movieID).ToList();
-                        if (exists.Count() <= 0)
-                            _usersContext.ToplistMovies.Add(new ToplistMoviesDBO
-                            {
-                                MovieId = movieID,
-                                ToplistId = t.Id
-                            });
+                        var val = bool.Parse(form[t.Name]);
+                        if (val)
+                        {
+                            var exists = _usersContext.ToplistMovies.Where(p => p.ToplistId == t.Id && p.MovieId == movieID).ToList();
+                            if (exists.Count() <= 0)
+                                _usersContext.ToplistMovies.Add(new ToplistMoviesDBO
+                                {
+                                    MovieId = movieID,
+                                    ToplistId = t.Id
+                                });
+                        }
                     }
                 }
             }
